@@ -1,0 +1,238 @@
+{
+  "date": "2026-04-21",
+  "generatedAt": "2026-04-22T10:00:00Z",
+  "articles": [
+    {
+      "id": "bbbf93cf-2782-48ac-9293-84f2c83eb974",
+      "date": "2026-04-21",
+      "section": "daily_brief",
+      "order_in_section": 1,
+      "title_en": "OpenAI Cuts GPT-5.4-Turbo-Flash Price 40%, Hitting Mid-Tier Players",
+      "title_zh": "OpenAI 下调 GPT-5.4-Turbo-Flash 定价 40%，冲击中端市场",
+      "content_en": "OpenAI slashed GPT-5.4-Turbo-Flash input pricing from $0.50 to $0.30 per million tokens on April 21, keeping output at $1.20/M. The move follows a week of silence after Anthropic's Opus 4.7 benchmark leadership and lands squarely on mid-tier competitors Cohere and Mistral's price tiers. OpenAI framed the cut as 'efficiency gains passed through,' but the signal is a margin defense against cheaper open-weights deployment.",
+      "content_zh": "OpenAI 于 4 月 21 日将 GPT-5.4-Turbo-Flash 输入定价从 $0.50 下调至 $0.30 每百万 token，输出保持 $1.20。此举紧随 Anthropic Opus 4.7 领跑 benchmark 之后的沉默一周，直接压在 Cohere 和 Mistral 的中端价位上。OpenAI 包装为「效率提升的让利」，但信号是对开源部署方的毛利防守。",
+      "so_what_en": "Price cuts in the mid-tier model class are here, and your AI-feature unit economics just moved. Recalculate your per-user cost this week — if you rebuilt a cost model on old numbers last month, it's wrong.",
+      "so_what_zh": "中端模型价格战来了，AI 功能的单位经济被动态改写。本周重新算一次每用户成本——上个月按旧价建的模型已经过时。",
+      "source_name": "The Information",
+      "source_url": "https://www.theinformation.com/",
+      "tags": [
+        "pricing",
+        "model"
+      ],
+      "status": "published",
+      "created_at": "2026-04-21T08:00:00Z",
+      "published_at": "2026-04-21T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "09182736-7b91-4f57-b9fb-f1147bdd7fde",
+      "date": "2026-04-21",
+      "section": "growth_insight",
+      "order_in_section": 1,
+      "title_en": "April Dunford: Most AI Companies Are Positioning Against the Wrong Alternative",
+      "title_zh": "April Dunford：大多数 AI 公司在对标错误的替代方案",
+      "content_en": "\"Nine of the last ten AI product pages I reviewed positioned against 'doing it manually' or 'generic ChatGPT'. Neither is the buyer's actual alternative. For most SaaS AI features, the real competitor is the existing non-AI workflow your customer already pays for — and until your positioning document answers 'why rip out Feature X in my CRM', you are doing content marketing, not positioning.\"",
+      "content_zh": "「我过去评审的十个 AI 产品页面里，九个在对位「手工做」或「通用 ChatGPT」。这都不是买家的真实替代方案。对大多数 SaaS 的 AI 功能来说，真正的对手是客户已经在付费的非 AI 工作流——在你的定位文档回答「为什么要把我 CRM 里的 X 功能换掉」之前，你做的不是定位，是内容营销。」",
+      "so_what_en": "Audit your product page: does it name a specific non-AI competitor product that buyers need to rip out? If not, rewrite the hero before spending another dollar on ads.",
+      "so_what_zh": "审视你的产品页：有没有点名某一个买家需要替换掉的非 AI 竞品？没有的话，先重写 hero 再投广告。",
+      "source_name": "@aprildunford on Substack",
+      "source_url": "https://www.aprildunford.com/articles",
+      "tags": [
+        "positioning",
+        "narrative"
+      ],
+      "status": "published",
+      "created_at": "2026-04-21T08:00:00Z",
+      "published_at": "2026-04-21T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "fab44881-ba8c-4d81-827c-27bb5156f414",
+      "date": "2026-04-21",
+      "section": "launch_radar",
+      "order_in_section": 1,
+      "title_en": "Vapi — AI Voice Agents That Book, Call, and Close",
+      "title_zh": "Vapi —— 会预约、打电话、闭单的 AI 语音 Agent",
+      "content_en": "Developer-first voice AI platform that turns any phone workflow into an API. Sub-500ms latency, supports 40+ languages, and handles interruptions naturally. Used by HR, sales, and support teams to automate outbound and inbound calls.",
+      "content_zh": "面向开发者的语音 AI 平台，把任意电话流程变成 API。延迟低于 500ms，支持 40+ 语种，自然处理打断。HR、销售、客服团队用它做自动化外呼和接听。",
+      "so_what_en": "- Voice is the new chat: phone workflows are a 2026 wedge, don't leave to sales-tech vendors\n- Test a Vapi agent for your outbound SDR qualification step this week\n- If it converts, your SDR team can 3x reach without headcount",
+      "so_what_zh": "- 语音是新的 chat：电话工作流是 2026 切入点，别只留给 sales-tech 厂商\n- 本周用 Vapi 跑一次外呼 SDR 资质筛查\n- 转化正常的话，SDR 团队无需扩招也能 3x 触达",
+      "source_name": "Vapi",
+      "source_url": "https://vapi.ai/",
+      "tags": [
+        "product",
+        "agents"
+      ],
+      "status": "published",
+      "created_at": "2026-04-21T08:00:00Z",
+      "published_at": "2026-04-21T08:00:00Z",
+      "metadata": {
+        "platform_data": "Product Hunt #1, 891 upvotes",
+        "launch_date": "2026-04-21",
+        "positioning_en": "Positioned as \"voice infrastructure\" not \"AI phone bot\", which shifts the buyer mental model from novelty to plumbing. Hero line \"plug voice into anything\" is a developer-tool archetype stolen from Twilio — credible because Vapi's founders are ex-Twilio.",
+        "positioning_zh": "定位为「语音基础设施」而非「AI 电话机器人」，把买家心智从新奇切到管道。Hero 句「plug voice into anything」借用 Twilio 式开发者工具原型——有说服力是因为创始人来自 Twilio。"
+      }
+    },
+    {
+      "id": "ebb48ae6-50d0-41d8-8de1-13e63693abd7",
+      "date": "2026-04-21",
+      "section": "daily_case",
+      "order_in_section": 1,
+      "title_en": "How Cursor Shipped a $500M Landing Page in 3 Versions",
+      "title_zh": "Cursor 如何把一张 Landing Page 改成 5 亿美元估值",
+      "content_en": "## Background & Data\n\nCursor hit $500M ARR and a $9B valuation in April 2026, up from $100M ARR one year prior. Their landing page went through 3 major versions in 12 months: V1 \"AI-first code editor,\" V2 \"built to make you extraordinarily productive,\" V3 (current) \"the best way to code with AI.\"\n\n## Analysis\n\n- **V1 was for developers, V3 is for buyers.** \"AI-first\" speaks to devs already sold on AI. \"The best way to code with AI\" speaks to eng leaders choosing a tool. Cursor deliberately shifted upstream.\n- **Social proof replaced feature claims.** V1 listed features below the fold. V3 opens with customer logos (Shopify, Perplexity, OpenAI) before a single feature is mentioned — trust before interest.\n- **The \"vs VS Code\" wedge got sharper.** V3 names the incumbent by category, not feature. \"Built to replace VS Code\" commits to the rip-and-replace frame; buyers understand the decision as binary.\n\n## What You Can Do\n\n- Audit your landing page hero: does it speak to individual user or buyer? Move up-funnel if you're selling into teams.\n- Pull three customer logos above the fold this week. If you can't credibly display three, social proof isn't your bottleneck yet — distribution is.\n- If an incumbent owns your category, name it in your hero. Vague \"better than generic tools\" is a losing frame.",
+      "content_zh": "## 背景与数据\n\nCursor 在 2026 年 4 月达到 5 亿美元 ARR、90 亿估值，一年前是 1 亿 ARR。他们的 landing page 12 个月内迭代 3 个大版本：V1「AI-first 代码编辑器」，V2「让你产出非凡生产力」，V3（当前）「用 AI 写代码的最佳方式」。\n\n## 分析\n\n- **V1 写给开发者，V3 写给买家。**「AI-first」对已经买账 AI 的开发者有效。「用 AI 写代码的最佳方式」对选工具的 eng leader 有效。Cursor 主动往上游迁移。\n- **社会认同替代了功能罗列。** V1 的功能列在首屏下方，V3 开局就是客户 logo（Shopify、Perplexity、OpenAI），功能都提都没提——先建立信任再谈兴趣。\n- **「vs VS Code」的切入更锋利。** V3 点名了 incumbent 的品类。「取代 VS Code」把决定变成 rip-and-replace 的二元选择，买家的决策成本反而降低。\n\n## 你可以做什么\n\n- 审视你的 landing page hero：是写给个体用户还是买家？卖给团队就向漏斗上游迁移\n- 本周把 3 个客户 logo 顶到首屏上方；如果拿不出 3 个，社会认同不是瓶颈——分发才是\n- 如果品类里有 incumbent，在 hero 里点名。模糊的「比通用工具好」是必输叙事",
+      "so_what_en": "Cursor's progression: V1 for users, V3 for buyers. If your landing page still speaks to the individual, you've outgrown it.",
+      "so_what_zh": "Cursor 的进化：V1 给用户，V3 给买家。Landing page 还在对话个体用户，说明你已经长大超出它了。",
+      "source_name": "Cursor Blog",
+      "source_url": "https://cursor.com/blog",
+      "tags": [
+        "case-study",
+        "narrative",
+        "conversion"
+      ],
+      "status": "published",
+      "created_at": "2026-04-21T08:00:00Z",
+      "published_at": "2026-04-21T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "e8c9f0a2-4170-44fa-86bf-c2ff2cb856bf",
+      "date": "2026-04-21",
+      "section": "daily_brief",
+      "order_in_section": 2,
+      "title_en": "Mistral Closes $800M Series C at $12B, Doubling Down on Enterprise On-Prem",
+      "title_zh": "Mistral 完成 8 亿美元 C 轮，估值 120 亿，全面押注企业本地部署",
+      "content_en": "Mistral announced an $800M Series C led by General Catalyst, valuing the French AI lab at $12B. CEO Arthur Mensch said the round will fund vertical pre-training partnerships with three unnamed EU enterprises and expansion of Mistral's on-prem deployment team. The company reported $180M ARR from enterprise licenses, up 4x YoY.",
+      "content_zh": "Mistral 宣布完成 8 亿美元 C 轮，由 General Catalyst 领投，估值达 120 亿美元。CEO Arthur Mensch 表示资金将用于与三家未公开 EU 企业的垂直预训练合作，以及扩张本地部署团队。企业授权 ARR 达 1.8 亿美元，同比 4 倍。",
+      "so_what_en": "Mistral's bet: in regulated EU industries, 'on-prem' is a stronger positioning than 'cheapest API.' If you sell into financial services, healthcare, or legal — lead with data-residency narrative, not tokens-per-dollar.",
+      "so_what_zh": "Mistral 的判断：在受监管的欧洲行业，「本地部署」是比「最便宜 API」更强的定位。如果你卖给金融、医疗、法律客户，用数据主权叙事开场，不要拼 token 单价。",
+      "source_name": "Bloomberg",
+      "source_url": "https://www.bloomberg.com/technology",
+      "tags": [
+        "funding",
+        "industry"
+      ],
+      "status": "published",
+      "created_at": "2026-04-21T08:00:00Z",
+      "published_at": "2026-04-21T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "cb8656db-ef1f-458b-bca6-18d10095fac9",
+      "date": "2026-04-21",
+      "section": "launch_radar",
+      "order_in_section": 2,
+      "title_en": "Cartesia — Sub-100ms Voice Model API",
+      "title_zh": "Cartesia —— 延迟低于 100ms 的语音模型 API",
+      "content_en": "Real-time voice generation API with industry-lowest latency (90ms first-token). Trained on Mamba architecture for streaming workloads. Free tier: 10K chars/month. Pro tier: $0.06/min of generated audio.",
+      "content_zh": "实时语音生成 API，行业最低延迟（首 token 90ms）。基于 Mamba 架构训练，专为流式负载优化。免费额度 1 万字/月，专业版 $0.06/分钟。",
+      "so_what_en": "- Latency is the moat, not voice quality — every major model sounds human now\n- Benchmark Cartesia vs ElevenLabs in YOUR product's conversational path\n- If your customer waits > 1 second, your app feels broken; sub-100ms is no longer optional",
+      "so_what_zh": "- 护城河是延迟，不是音质——头部模型音质都已接近真人\n- 在你产品的对话路径里实测 Cartesia vs ElevenLabs\n- 客户等 1 秒以上就觉得卡，低于 100ms 不再是可选项",
+      "source_name": "Cartesia on Hacker News",
+      "source_url": "https://news.ycombinator.com/",
+      "tags": [
+        "product",
+        "model"
+      ],
+      "status": "published",
+      "created_at": "2026-04-21T08:00:00Z",
+      "published_at": "2026-04-21T08:00:00Z",
+      "metadata": {
+        "platform_data": "Show HN #3, 412 upvotes",
+        "launch_date": "2026-04-21",
+        "positioning_en": "Cartesia positioned around \"Mamba\" — a technical architecture term. Risky for non-ML buyers but brilliant for the ICP (voice infra devs) who treat the Mamba credential as a proof-of-moat in a crowded space.",
+        "positioning_zh": "Cartesia 定位围绕「Mamba」这个技术架构术语。对非 ML 买家有风险，但对 ICP（语音基础设施开发者）是聪明选择——在拥挤市场里，Mamba 身份是护城河信号。"
+      }
+    },
+    {
+      "id": "f5eb08df-6768-4cdc-8aa4-12d1581fdad4",
+      "date": "2026-04-21",
+      "section": "daily_brief",
+      "order_in_section": 3,
+      "title_en": "TSMC Delays 2nm Ramp to Q4, AI GPU Supply Tight Through Holiday",
+      "title_zh": "TSMC 2nm 量产推迟至 Q4，假日季 AI GPU 供给吃紧",
+      "content_en": "TSMC confirmed during its Q1 earnings call that 2nm process ramp has slipped from Q3 to Q4, citing yield issues on the N2 node. Analysts at Bernstein estimate the delay tightens AI GPU supply for Nvidia's Blackwell Ultra and AMD's MI400 through year-end, potentially pushing hyperscaler 2026 capex more toward prior-gen chips at a premium.",
+      "content_zh": "TSMC 在 Q1 财报电话中确认 2nm 工艺量产从 Q3 推迟至 Q4，归因于 N2 节点良率问题。Bernstein 分析师估算，此推迟将令 Nvidia Blackwell Ultra 和 AMD MI400 供给在年底前持续吃紧，可能推动超大规模厂商 2026 年 capex 向溢价的旧代芯片倾斜。",
+      "so_what_en": "Compute constraints are back. If your product's core promise is 'fast AI', pin down your inference provider's capacity commitment now — in Q4 you'll be negotiating from weakness.",
+      "so_what_zh": "算力瓶颈重来。如果你产品核心承诺是「AI 快」，现在锁推理服务商的产能承诺——Q4 再谈判你没筹码。",
+      "source_name": "Bernstein Research",
+      "source_url": "https://www.bernsteinresearch.com/",
+      "tags": [
+        "hardware",
+        "industry"
+      ],
+      "status": "published",
+      "created_at": "2026-04-21T08:00:00Z",
+      "published_at": "2026-04-21T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "8f5ad3ba-4d2b-4a36-bcfe-6237c5960a2f",
+      "date": "2026-04-21",
+      "section": "daily_brief",
+      "order_in_section": 4,
+      "title_en": "EU AI Act Second Review: General-Purpose Model Obligations Delayed to 2027",
+      "title_zh": "EU AI Act 第二轮评审：通用模型义务推迟至 2027",
+      "content_en": "The European Commission published its second review of the AI Act on April 21, officially delaying general-purpose AI model (GPAI) compliance obligations from August 2026 to January 2027. The delay covers transparency reports, copyright training data disclosure, and downstream fine-tuner liability provisions. Industry groups including ALLAI had lobbied for an 18-month extension; they got six.",
+      "content_zh": "欧盟委员会于 4 月 21 日发布 AI Act 第二轮评审，正式将通用模型（GPAI）合规义务从 2026 年 8 月推迟至 2027 年 1 月。延期覆盖透明度报告、版权训练数据披露、下游微调方责任条款。包括 ALLAI 在内的行业组织此前游说 18 个月延期，最终争取到 6 个月。",
+      "so_what_en": "Compliance timelines moved but didn't vanish. Use the extra six months to actually build the data-provenance story your EU enterprise buyers are starting to ask about.",
+      "so_what_zh": "合规期限推后但没消失。利用这 6 个月把数据来源叙事真正做出来——欧洲企业买家已经开始问了。",
+      "source_name": "European Commission",
+      "source_url": "https://digital-strategy.ec.europa.eu/",
+      "tags": [
+        "policy",
+        "legal"
+      ],
+      "status": "published",
+      "created_at": "2026-04-21T08:00:00Z",
+      "published_at": "2026-04-21T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "075f9efb-6962-42dc-a3a2-b8ef713f257b",
+      "date": "2026-04-21",
+      "section": "daily_brief",
+      "order_in_section": 5,
+      "title_en": "Cohere Formally Exits Consumer, Cuts Rerank API Pricing 60% for Enterprise",
+      "title_zh": "Cohere 正式退出 C 端，Rerank API 企业定价下调 60%",
+      "content_en": "Cohere announced it will sunset Coral (its consumer chat product) by June 30 and refocus fully on enterprise RAG infrastructure. Simultaneously, Rerank-v3 API pricing drops from $2.00 to $0.80 per 1,000 requests for annual-commit customers. CRO Martin Kon said the company will cut 12% of go-to-market staff assigned to self-serve and consumer channels.",
+      "content_zh": "Cohere 宣布 6 月 30 日前关停消费级产品 Coral，全面聚焦企业 RAG 基础设施。同时 Rerank-v3 API 年度承诺客户定价从 $2.00 降至 $0.80 每千次请求。CRO Martin Kon 表示将裁减 12% 的 self-serve 和消费渠道的 GTM 人员。",
+      "so_what_en": "Another foundation lab picks a side: enterprise-only. The AI marketer playbook diverges hard by ICP now — your messaging needs to choose compliance-heavy enterprise or self-serve dev, not both.",
+      "so_what_zh": "又一家模型厂商选边站：只做企业。AI 营销叙事按 ICP 严重分化——文案必须在「合规重的企业」和「self-serve 开发者」之间选一个，别想兼顾。",
+      "source_name": "Cohere Blog",
+      "source_url": "https://cohere.com/blog",
+      "tags": [
+        "industry",
+        "pricing"
+      ],
+      "status": "published",
+      "created_at": "2026-04-21T08:00:00Z",
+      "published_at": "2026-04-21T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "c5c1ce24-d702-4c42-9a47-709711b102e4",
+      "date": "2026-04-21",
+      "section": "daily_brief",
+      "order_in_section": 6,
+      "title_en": "Anthropic Ships Opus 4.7 EU On-Prem Preview to Three Launch Partners",
+      "title_zh": "Anthropic 向三家首发伙伴推出 Opus 4.7 EU 本地部署预览",
+      "content_en": "Anthropic released an Opus 4.7 on-premise deployment preview in Frankfurt and Dublin regions to three unnamed EU enterprise customers. The offering includes a customer-managed inference runtime, VPC-isolated model weights, and a reference MCP adapter for Azure AI Foundry integration. GA is targeted for Q3 2026. Per-token pricing was not disclosed.",
+      "content_zh": "Anthropic 向三家未公开 EU 企业客户，在法兰克福和都柏林区域推出 Opus 4.7 本地部署预览。产品包含客户自管推理 runtime、VPC 隔离的模型权重，以及接入 Azure AI Foundry 的 MCP 适配器参考实现。GA 目标 2026 Q3，按 token 定价暂未披露。",
+      "so_what_en": "On-prem is going mainstream for frontier models, not just open-weights. If you're building on Anthropic and your roadmap says 'multi-region', ping their enterprise team about early access.",
+      "so_what_zh": "前沿模型本地部署正走向主流，不只是开源权重。如果你基于 Anthropic 做产品、路线图里有「多区域」，现在联系他们企业销售争取早期接入。",
+      "source_name": "Anthropic",
+      "source_url": "https://www.anthropic.com/enterprise",
+      "tags": [
+        "model",
+        "product",
+        "industry"
+      ],
+      "status": "published",
+      "created_at": "2026-04-21T08:00:00Z",
+      "published_at": "2026-04-21T08:00:00Z",
+      "metadata": {}
+    }
+  ]
+}

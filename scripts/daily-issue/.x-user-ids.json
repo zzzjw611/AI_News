@@ -1,0 +1,82 @@
+{
+  "karpathy": {
+    "id": "33836629",
+    "name": "Andrej Karpathy",
+    "resolved_at": "2026-04-22T23:47:22.773Z"
+  },
+  "swyx": {
+    "id": "33521530",
+    "name": "swyx 🇸🇬",
+    "resolved_at": "2026-04-22T23:47:22.859Z"
+  },
+  "AmandaAskell": {
+    "id": "756181721997987848",
+    "name": "Amanda Askell",
+    "resolved_at": "2026-04-22T23:47:22.961Z"
+  },
+  "alexalbert__": {
+    "id": "1380719534970040322",
+    "name": "Alex Albert",
+    "resolved_at": "2026-04-22T23:47:23.046Z"
+  },
+  "rauchg": {
+    "id": "15540222",
+    "name": "Guillermo Rauch",
+    "resolved_at": "2026-04-22T23:47:23.146Z"
+  },
+  "amasad": {
+    "id": "166138615",
+    "name": "Amjad Masad",
+    "resolved_at": "2026-04-22T23:47:23.227Z"
+  },
+  "danshipper": {
+    "id": "19829693",
+    "name": "Dan Shipper 📧",
+    "resolved_at": "2026-04-22T23:47:23.304Z"
+  },
+  "sama": {
+    "id": "1605",
+    "name": "Sam Altman",
+    "resolved_at": "2026-04-22T23:47:23.392Z"
+  },
+  "mattturck": {
+    "id": "247785677",
+    "name": "Matt Turck",
+    "resolved_at": "2026-04-22T23:47:23.477Z"
+  },
+  "garrytan": {
+    "id": "11768582",
+    "name": "Garry Tan",
+    "resolved_at": "2026-04-22T23:47:23.551Z"
+  },
+  "levie": {
+    "id": "914061",
+    "name": "Aaron Levie",
+    "resolved_at": "2026-04-22T23:47:23.634Z"
+  },
+  "packyM": {
+    "id": "21306324",
+    "name": "Packy McCormick",
+    "resolved_at": "2026-04-22T23:47:23.709Z"
+  },
+  "lennysan": {
+    "id": "7958322",
+    "name": "Lenny Rachitsky",
+    "resolved_at": "2026-04-22T23:47:23.786Z"
+  },
+  "Julian": {
+    "id": "293815131",
+    "name": "Julian Shapiro",
+    "resolved_at": "2026-04-22T23:47:23.871Z"
+  },
+  "nathanbarry": {
+    "id": "16930883",
+    "name": "Nathan Barry",
+    "resolved_at": "2026-04-22T23:47:23.954Z"
+  },
+  "harrydry": {
+    "id": "309705015",
+    "name": "Harry Dry",
+    "resolved_at": "2026-04-22T23:47:24.059Z"
+  }
+}

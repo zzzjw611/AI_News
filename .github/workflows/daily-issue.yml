@@ -1,0 +1,68 @@
+name: Daily Issue
+
+on:
+  schedule:
+    # 17:00 UTC = 09:00 PST / 10:00 PDT
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Target date (YYYY-MM-DD). Defaults to today UTC.'
+        required: false
+        type: string
+      dry_run:
+        description: 'Skip Claude calls and JSON writes.'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: daily-issue
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Generate daily issue
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          args=""
+          if [ -n "${{ inputs.date }}" ]; then args="$args --date ${{ inputs.date }}"; fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then args="$args --dry-run"; fi
+          npm run generate:daily -- $args
+
+      - name: Commit if changed
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- src/data/; then
+            echo "No data changes; nothing to commit."
+            exit 0
+          fi
+          git add src/data/
+          DATE="${{ inputs.date }}"
+          if [ -z "$DATE" ]; then DATE=$(date -u +%F); fi
+          git commit -m "daily: publish issue $DATE"
+          git push

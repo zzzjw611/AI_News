@@ -1,0 +1,269 @@
+{
+  "date": "2026-04-22",
+  "generatedAt": "2026-04-23T05:03:36.347Z",
+  "articles": [
+    {
+      "id": "2026-04-22-daily_brief-1",
+      "date": "2026-04-22",
+      "section": "daily_brief",
+      "order_in_section": 1,
+      "title_en": "OpenAI Makes ChatGPT Free for Verified U.S. Clinicians",
+      "title_zh": "OpenAI 向经认证的美国临床医生免费开放 ChatGPT",
+      "content_en": "OpenAI is offering ChatGPT for Clinicians at no cost to verified U.S. physicians, nurse practitioners, and pharmacists. The product is designed to support clinical care, documentation, and research workflows. The move positions OpenAI directly in healthcare enterprise, a sector where competitors like Google and Microsoft are also aggressively building.",
+      "content_zh": "OpenAI 向经认证的美国执业医师、执业护士及药剂师免费开放 ChatGPT for Clinicians。该产品专为临床诊疗、医疗文书和科研工作流设计。此举使 OpenAI 直接切入医疗健康企业市场，该赛道同样是 Google 和 Microsoft 的重点布局方向。",
+      "so_what_en": "Healthcare vertical is now a free-acquisition channel for OpenAI — watch for premium upsell tiers targeting hospital systems next.",
+      "so_what_zh": "医疗垂类已成为 OpenAI 的免费获客渠道，关注其后续针对医院系统推出高级付费层级的动作。",
+      "source_name": "OpenAI Blog",
+      "source_url": "https://openai.com/index/making-chatgpt-better-for-clinicians",
+      "tags": [
+        "product-launch",
+        "healthcare",
+        "go-to-market"
+      ],
+      "status": "published",
+      "created_at": "2026-04-23T05:05:00.654Z",
+      "published_at": "2026-04-23T05:05:00.654Z",
+      "metadata": {
+        "source_group": "brief_first_party",
+        "generated_by": "daily-issue-pipeline"
+      }
+    },
+    {
+      "id": "2026-04-22-daily_brief-2",
+      "date": "2026-04-22",
+      "section": "daily_brief",
+      "order_in_section": 2,
+      "title_en": "Google Launches Two Gen-8 TPUs Built for Agentic AI Workloads",
+      "title_zh": "Google 发布两款第八代 TPU，专为 agentic AI 工作负载设计",
+      "content_en": "Google unveiled its eighth-generation TPU line at Cloud Next, comprising two specialized chips targeting the demands of agentic AI inference and training. The chips are available via Google Cloud. This is a direct infrastructure signal: Google is betting that agent workloads will require purpose-built silicon, not general-purpose GPUs.",
+      "content_zh": "Google 在 Cloud Next 大会上发布第八代 TPU 产品线，包含两款专用芯片，分别面向 agentic AI 的 inference 与 training 需求，现已在 Google Cloud 上线。这是明确的基础设施信号：Google 押注 agent 工作负载将需要专用芯片，而非通用 GPU。",
+      "so_what_en": "Enterprise AI buyers evaluating cloud infrastructure should now weigh Google Cloud's TPU pricing against Nvidia GPU costs for agent-heavy deployments.",
+      "so_what_zh": "正在评估云基础设施的企业 AI 买家，应将 Google Cloud TPU 定价与 Nvidia GPU 成本做对比，尤其是 agent 密集型部署场景。",
+      "source_name": "Google AI Blog",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/tpus-8t-8i-cloud-next",
+      "tags": [
+        "product-launch",
+        "infrastructure",
+        "agentic"
+      ],
+      "status": "published",
+      "created_at": "2026-04-23T05:05:00.654Z",
+      "published_at": "2026-04-23T05:05:00.654Z",
+      "metadata": {
+        "source_group": "brief_first_party",
+        "generated_by": "daily-issue-pipeline"
+      }
+    },
+    {
+      "id": "2026-04-22-daily_brief-3",
+      "date": "2026-04-22",
+      "section": "daily_brief",
+      "order_in_section": 3,
+      "title_en": "OpenAI Cuts Agent API Latency With WebSockets and Connection Caching",
+      "title_zh": "OpenAI 借助 WebSockets 与连接缓存降低 agent API 延迟",
+      "content_en": "OpenAI published a technical deep dive on its Codex agent loop, detailing how WebSockets and connection-scoped caching reduce API overhead and improve model latency in agentic workflows. The Responses API now supports WebSocket connections. Developers building agent products on OpenAI's stack can expect faster round-trip times without changing their prompts or model calls.",
+      "content_zh": "OpenAI 发布 Codex agent loop 技术详解，介绍了如何通过 WebSockets 与连接范围缓存降低 API 开销、提升 agentic 工作流中的模型 latency。Responses API 现已支持 WebSocket 连接。基于 OpenAI 技术栈构建 agent 产品的开发者无需修改 prompt 或模型调用即可获得更短的往返响应时间。",
+      "so_what_en": "If your agent product has latency complaints, test the WebSocket path in the Responses API before assuming you need to switch models.",
+      "so_what_zh": "若你的 agent 产品存在延迟问题，在考虑换模型之前，先测试 Responses API 的 WebSocket 路径。",
+      "source_name": "OpenAI Blog",
+      "source_url": "https://openai.com/index/speeding-up-agentic-workflows-with-websockets",
+      "tags": [
+        "developer-tools",
+        "agentic",
+        "api"
+      ],
+      "status": "published",
+      "created_at": "2026-04-23T05:05:00.654Z",
+      "published_at": "2026-04-23T05:05:00.654Z",
+      "metadata": {
+        "source_group": "brief_first_party",
+        "generated_by": "daily-issue-pipeline"
+      }
+    },
+    {
+      "id": "2026-04-22-daily_brief-4",
+      "date": "2026-04-22",
+      "section": "daily_brief",
+      "order_in_section": 4,
+      "title_en": "ByteDance Ships Seed3D 2.0, a MoE-Based 3D Generation Model",
+      "title_zh": "字节跳动发布 Seed3D 2.0，采用 MoE 架构的 3D 生成大模型",
+      "content_en": "ByteDance released Seed3D 2.0, its next-generation 3D asset generation model built on a MoE architecture with sparse expert routing. The model produces higher-resolution outputs with richer texture detail and more precise metallic-roughness boundaries while keeping inference compute controlled. The technical report is public and the API is live on Volcano Engine.",
+      "content_zh": "字节跳动正式发布 Seed3D 2.0，采用 MoE 架构与稀疏专家路由，在扩大参数量与分辨率的同时控制 inference 计算量，输出更丰富的纹理细节与更精确的金属-粗糙度边界。技术报告已公开，API 已在火山引擎上线。",
+      "so_what_en": "3D content studios and game marketers should test Seed3D 2.0 via Volcano Engine API — higher-fidelity assets at controlled inference cost changes the build-vs-buy calculus.",
+      "so_what_zh": "3D 内容工作室和游戏营销团队应通过火山引擎 API 测试 Seed3D 2.0——在可控 inference 成本下获得更高保真度资产，将改变自研与采购的决策逻辑。",
+      "source_name": "36氪",
+      "source_url": "https://36kr.com/newsflashes/3778928879129865?f=rss",
+      "tags": [
+        "product-launch",
+        "multimodal",
+        "3d-generation"
+      ],
+      "status": "published",
+      "created_at": "2026-04-23T05:05:00.654Z",
+      "published_at": "2026-04-23T05:05:00.654Z",
+      "metadata": {
+        "source_group": "brief_media",
+        "generated_by": "daily-issue-pipeline"
+      }
+    },
+    {
+      "id": "2026-04-22-daily_brief-5",
+      "date": "2026-04-22",
+      "section": "daily_brief",
+      "order_in_section": 5,
+      "title_en": "TikTok Removes 538,000 AI-Deepfake Videos, Penalizes 4,000+ Accounts",
+      "title_zh": "抖音下架逾 53.8 万条 AI 侵权视频，处罚 4000 余个违规账号",
+      "content_en": "TikTok's Chinese platform published a formal governance notice targeting AI-generated content that violates others' rights, specifically face-swapping and voice cloning used to impersonate or piggyback on public figures. The platform has removed more than 538,000 infringing videos and penalized over 4,000 accounts. Long-term controls will focus on face-swap, voice theft, and AI-generated impersonation of trending figures.",
+      "content_zh": "抖音正式发布 'AI生成不当内容及侵犯他人权益' 专项治理公告，重点针对换脸、盗声及仿冒蹭热等违规行为，截至目前已累计下架 AI 侵权视频超 53.8 万条，处罚违规账号 4000 余个，并明确了长效管控举措。",
+      "so_what_en": "Brands running KOL campaigns on TikTok/Douyin should audit any AI-generated creative that uses real faces or voices — enforcement is now at scale.",
+      "so_what_zh": "在抖音/TikTok 投放 KOL 活动的品牌，应立即审查涉及真实人脸或声音的 AI 创意素材——平台已进入规模化执法阶段。",
+      "source_name": "36氪",
+      "source_url": "https://36kr.com/newsflashes/3778909321008130?f=rss",
+      "tags": [
+        "regulation",
+        "content-moderation",
+        "ai-generated-content"
+      ],
+      "status": "published",
+      "created_at": "2026-04-23T05:05:00.654Z",
+      "published_at": "2026-04-23T05:05:00.654Z",
+      "metadata": {
+        "source_group": "brief_media",
+        "generated_by": "daily-issue-pipeline"
+      }
+    },
+    {
+      "id": "2026-04-22-daily_brief-6",
+      "date": "2026-04-22",
+      "section": "daily_brief",
+      "order_in_section": 6,
+      "title_en": "India's App Market Booms, but Global Platforms Capture Most Revenue",
+      "title_zh": "印度应用市场高速增长，但全球平台收割大部分收益",
+      "content_en": "India's non-gaming app market is growing fast, driven by streaming and AI apps, yet per-user spending remains significantly below global averages. Global platforms — not local developers — are capturing the bulk of revenue gains. For AI marketers, this creates a two-sided signal: massive user acquisition potential but low immediate monetization per install.",
+      "content_zh": "印度非游戏应用市场增长迅猛，流媒体和 AI 应用是主要驱动力，但用户人均消费仍远低于全球平均水平。全球平台而非本地开发者正在获取大部分收益增长。对 AI 营销者而言，这意味着极高的用户获取潜力，但单用户即时变现能力有限。",
+      "so_what_en": "Use India as a top-of-funnel growth market for AI products, but don't build near-term ARR projections around Indian per-user spend.",
+      "so_what_zh": "可将印度作为 AI 产品的 top-of-funnel 增长市场，但近期 ARR 预测不应依赖印度用户的人均消费。",
+      "source_name": "TechCrunch AI",
+      "source_url": "https://techcrunch.com/2026/04/22/indias-app-market-is-booming-but-global-platforms-are-capturing-most-of-the-gains",
+      "tags": [
+        "market-intelligence",
+        "growth",
+        "emerging-markets"
+      ],
+      "status": "published",
+      "created_at": "2026-04-23T05:05:00.654Z",
+      "published_at": "2026-04-23T05:05:00.654Z",
+      "metadata": {
+        "source_group": "brief_media",
+        "generated_by": "daily-issue-pipeline"
+      }
+    },
+    {
+      "id": "2026-04-22-growth_insight-1",
+      "date": "2026-04-22",
+      "section": "growth_insight",
+      "order_in_section": 1,
+      "title_en": "Claude Design vs Figma: A Practitioner's Honest Take",
+      "title_zh": "Claude Design 对比 Figma：从业者的真实评测",
+      "content_en": "Lenny's Newsletter ran a hands-on test building a landing page, slides, and a brand redesign with Claude Design, benchmarking it against GPT Image 2.0 for brand asset creation. The piece argues Claude Design has a specific, bounded use case — not a Figma killer. GPT Image 2.0 is flagged as the more disruptive force for brand asset workflows.",
+      "content_zh": "Lenny's Newsletter 亲手用 Claude Design 制作了 landing page、幻灯片和品牌改版，并与 GPT Image 2.0 进行了对比测试。文章认为 Claude Design 有其明确的适用边界，并非 Figma 的终结者。GPT Image 2.0 被指出对品牌资产工作流的冲击更大。",
+      "so_what_en": "Before cutting your design tool budget, map which workflow each AI tool actually replaces — Claude Design and GPT Image 2.0 attack different parts of the stack.",
+      "so_what_zh": "砍设计工具预算前，先逐一核查每款 AI 工具实际替代哪段工作流——Claude Design 和 GPT Image 2.0 针对的是不同环节。",
+      "source_name": "Lenny's Newsletter",
+      "source_url": "https://www.lennysnewsletter.com/p/what-claude-design-is-actually-good",
+      "tags": [
+        "product-launch",
+        "design",
+        "ai-native",
+        "marketing-tools"
+      ],
+      "status": "published",
+      "created_at": "2026-04-23T05:05:09.547Z",
+      "published_at": "2026-04-23T05:05:09.547Z",
+      "metadata": {
+        "source_group": "growth_substack",
+        "generated_by": "daily-issue-pipeline"
+      }
+    },
+    {
+      "id": "2026-04-22-launch_radar-1",
+      "date": "2026-04-22",
+      "section": "launch_radar",
+      "order_in_section": 1,
+      "title_en": "Google Research Ships AI Photo Re-Composition Tool",
+      "title_zh": "Google Research 发布 AI 照片重新构图工具",
+      "content_en": "Google Research published a blog post on April 22 detailing a generative AI system that re-composes existing photos by changing the camera angle — repositioning subjects and filling in occluded areas — without a reshoot. The model infers scene geometry and synthesizes plausible background content to match the new viewpoint. This is distinct from simple cropping or rotation: it generates entirely new pixels to complete the reframed image.",
+      "content_zh": "Google Research 于 4 月 22 日发布博客，详细介绍一套 generative AI 系统，可在无需重新拍摄的情况下，通过改变拍摄角度对现有照片进行重新构图——重新定位主体并填充被遮挡区域。该模型推断场景几何结构，并合成符合新视角的背景内容。这不同于简单裁剪或旋转：它会生成全新像素以补全重构后的画面。",
+      "so_what_en": "Creative and e-commerce teams should watch for this in Google Photos or Workspace — AI-driven reframing at scale kills the 'wrong angle' reshooting brief.",
+      "so_what_zh": "创意和电商团队需关注该功能进入 Google Photos 或 Workspace 的时间节点——AI 批量重新构图将彻底消灭'角度不对需重拍'的需求。",
+      "source_name": "Google Research",
+      "source_url": "https://research.google/blog/its-all-about-the-angle-your-photos-re-composed",
+      "tags": [
+        "product-launch",
+        "generative-ai",
+        "creative-tools"
+      ],
+      "status": "published",
+      "created_at": "2026-04-23T05:05:27.371Z",
+      "published_at": "2026-04-23T05:05:27.371Z",
+      "metadata": {
+        "source_group": "brief_first_party",
+        "generated_by": "daily-issue-pipeline"
+      }
+    },
+    {
+      "id": "2026-04-22-launch_radar-2",
+      "date": "2026-04-22",
+      "section": "launch_radar",
+      "order_in_section": 2,
+      "title_en": "RAG-Anything: One Open-Source Framework for All File Types",
+      "title_zh": "RAG-Anything：一套开源框架处理所有文件类型",
+      "content_en": "RAG-Anything, released by HKUDS on GitHub, is an open-source RAG framework that ingests text, tables, images, equations, and audio in a single pipeline — accumulating 786 GitHub stars in a single day as of April 23. It abstracts away the preprocessing complexity that typically requires separate parsers per modality. Marketers building internal knowledge bases or product-search tools no longer need to stitch together multiple retrieval libraries.",
+      "content_zh": "香港大学数据智能实验室（HKUDS）在 GitHub 发布开源项目 RAG-Anything，支持在单一 pipeline 中处理文本、表格、图片、公式和音频，截至 4 月 23 日单日新增 786 颗 star。它屏蔽了各模态分别需要独立解析器的预处理复杂度。构建内部知识库或产品搜索工具的营销团队，无需再拼接多个 retrieval 库。",
+      "so_what_en": "If your team manages mixed-format content (PDFs, slides, images), fork RAG-Anything now to cut retrieval pipeline build time before evaluating paid alternatives.",
+      "so_what_zh": "若团队管理混合格式内容（PDF、幻灯片、图片），立即 fork RAG-Anything，在评估付费方案前先压缩 retrieval pipeline 的搭建时间。",
+      "source_name": "GitHub Trending",
+      "source_url": "https://github.com/HKUDS/RAG-Anything",
+      "tags": [
+        "open-source",
+        "RAG",
+        "developer-tool",
+        "indie"
+      ],
+      "status": "published",
+      "created_at": "2026-04-23T05:05:27.371Z",
+      "published_at": "2026-04-23T05:05:27.371Z",
+      "metadata": {
+        "source_group": "launch_github_trending",
+        "generated_by": "daily-issue-pipeline"
+      }
+    },
+    {
+      "id": "2026-04-22-daily_case-1",
+      "date": "2026-04-22",
+      "section": "daily_case",
+      "order_in_section": 1,
+      "title_en": "CETC Cybersecurity's Agent Play: Announced But Not Deployed",
+      "title_zh": "电科网安的 agent 牌：发布了，但还没上场",
+      "content_en": "## Background & Numbers\nCETC Cybersecurity disclosed on an investor platform that its security agent product is still in the exploration phase, has not been deployed in production, and has generated zero revenue.\n\n## Analysis\n1. **Public disclosure before deployment is a positioning risk** Claiming AI capabilities on investor channels before production creates a credibility gap that competitors can exploit.\n2. **'Exploration phase' signals a roadmap, not a product** Enterprise buyers distinguish between a demo and a shipped agent — the gap is often 12–18 months of integration work.\n3. **Zero revenue is a forcing function** Budget pressure will push the team toward a faster GTM or a pivot to a narrower, shippable use case.\n\n## What You Can Do\n- Audit your own AI product claims against shipped features\n- Map competitor 'AI' announcements to actual deployed products\n- Build a pipeline of pilot customers before any public roadmap claim",
+      "content_zh": "## 背景与数据\n电科网安在投资者互动平台披露：安全 agent 仍处于探索阶段，未部署，未产生收入。\n\n## 分析\n1. **产品未上线却已对外宣传，信誉风险极高** 竞争对手可借此攻击其 AI 落地能力。\n2. **\"探索阶段\"是路线图，不是产品** 企业买家会区分 demo 与已部署 agent。\n3. **零收入是倒逼节点** 迫使团队加速 GTM 或缩小至可交付场景。\n\n## 你可以做什么\n- 对照已上线功能审查自身 AI 宣传口径\n- 标记竞品\"AI 公告\"是否有实际部署\n- 先锁定 pilot 客户，再对外发布路线图",
+      "so_what_en": "Announcing an agent before deployment is a liability — map your claims to shipped code.",
+      "so_what_zh": "agent 未上线先宣传是负债，先交付再对外讲故事。",
+      "source_name": "36氪",
+      "source_url": "https://36kr.com/newsflashes/3778883926496260?f=rss",
+      "tags": [
+        "agent",
+        "gtm",
+        "enterprise",
+        "positioning"
+      ],
+      "status": "published",
+      "created_at": "2026-04-23T05:05:40.809Z",
+      "published_at": "2026-04-23T05:05:40.809Z",
+      "metadata": {
+        "source_group": "brief_media",
+        "generated_by": "daily-issue-pipeline"
+      }
+    }
+  ]
+}

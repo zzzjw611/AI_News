@@ -1,0 +1,238 @@
+{
+  "date": "2026-04-18",
+  "generatedAt": "2026-04-22T10:00:00Z",
+  "articles": [
+    {
+      "id": "8f874379-a623-4206-9aec-5315371b258a",
+      "date": "2026-04-18",
+      "section": "daily_brief",
+      "order_in_section": 1,
+      "title_en": "Databricks Confirms $14B Secondary at $62B Valuation, IPO Delayed to 2027",
+      "title_zh": "Databricks 确认 140 亿美元 secondary，估值 620 亿，IPO 推至 2027",
+      "content_en": "Databricks announced a $14B secondary tender offer on April 18 at a $62B valuation, up from $43B in late 2024. CEO Ali Ghodsi said the company will delay its IPO to 2027 to \"fully absorb Mosaic's pipeline.\" The secondary was oversubscribed by 3x, led by Thrive Capital.",
+      "content_zh": "Databricks 于 4 月 18 日宣布 140 亿美元 secondary 认购，估值 620 亿，较 2024 年底的 430 亿上升。CEO Ali Ghodsi 表示公司将 IPO 推迟至 2027 年，以「充分消化 Mosaic 的 pipeline」。此轮超额认购 3 倍，由 Thrive Capital 领投。",
+      "so_what_en": "Staying private longer = more room to run messaging experiments. If you're a private AI company, don't chase IPO readiness metrics too early — they constrain how bold your positioning can be.",
+      "so_what_zh": "私有化更久 = 更大的叙事试验空间。如果你是私有 AI 公司，不要太早追求 IPO-ready 指标——它会束缚你的定位大胆程度。",
+      "source_name": "The Information",
+      "source_url": "https://www.theinformation.com/",
+      "tags": [
+        "funding",
+        "industry"
+      ],
+      "status": "published",
+      "created_at": "2026-04-18T08:00:00Z",
+      "published_at": "2026-04-18T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "550d3a2f-5efb-44f2-a7a1-40f2bbe7f902",
+      "date": "2026-04-18",
+      "section": "growth_insight",
+      "order_in_section": 1,
+      "title_en": "Dharmesh Shah: The AI Moat Isn't Data, It's Data + Distribution",
+      "title_zh": "Dharmesh Shah：AI 护城河不是数据，是数据 × 分发",
+      "content_en": "\"Every founder tells me 'my data is the moat.' Wrong. Data alone is a one-time advantage — competitors will match it within a year via partnerships or scraping. The durable moat is data + distribution, multiplicatively. HubSpot's AI works because of 200K businesses using it daily, not because of our training corpus. If you have the data but not the distribution, build an integration before the model; if you have the distribution but weak data, buy or barter for it.\"",
+      "content_zh": "「每个创始人都跟我说「我的数据是护城河」。错。数据本身是一次性优势——竞品一年内能通过合作或抓取追平。真正持久的护城河是数据 × 分发，乘法关系。HubSpot 的 AI 好用是因为 20 万家企业每天在用，不是因为我们的训练语料。如果你有数据没分发，先做集成再做模型；如果你有分发但数据弱，买或换。」",
+      "so_what_en": "Rate your own moat: data × distribution = 1-10 on each axis. If either is below 5, that's the function to fix before anything else.",
+      "so_what_zh": "给自己护城河打分：数据 × 分发，各轴 1-10。任一低于 5，那就是其他都不做也要先补的。",
+      "source_name": "@dharmesh on LinkedIn",
+      "source_url": "https://www.linkedin.com/in/dharmesh",
+      "tags": [
+        "narrative",
+        "growth"
+      ],
+      "status": "published",
+      "created_at": "2026-04-18T08:00:00Z",
+      "published_at": "2026-04-18T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "3b208fc7-c46f-4355-b761-693622350669",
+      "date": "2026-04-18",
+      "section": "launch_radar",
+      "order_in_section": 1,
+      "title_en": "Decagon — AI Customer Support That Actually Closes Tickets",
+      "title_zh": "Decagon —— 真能关单的 AI 客服",
+      "content_en": "Autonomous AI support agent that resolves customer tickets end-to-end — not just routes them. Integrates with Zendesk, Intercom, HubSpot. Claims average ticket resolution in under 3 minutes and 65% autonomous closure rate. Enterprise only, pricing by volume.",
+      "content_zh": "自主 AI 客服 agent，端到端解决客户 ticket——不只是分流。集成 Zendesk、Intercom、HubSpot。声称平均 3 分钟内关单，65% 自主闭环率。仅企业版，按量定价。",
+      "so_what_en": "- \"AI agent for support\" is crowded — winners pick one measurable outcome to own\n- Benchmark Decagon vs your current tool on your top 5 ticket types this week\n- If Decagon wins on 3 of 5, the ROI math moves your CS budget toward AI-native",
+      "so_what_zh": "- 「客服 AI agent」已经拥挤——赢家只专注一个可测量结果\n- 本周在你 top 5 工单类型上测 Decagon vs 现状\n- Decagon 赢 5 中 3 就让你的客服预算往 AI-native 倾斜",
+      "source_name": "Decagon",
+      "source_url": "https://decagon.ai/",
+      "tags": [
+        "product",
+        "agents"
+      ],
+      "status": "published",
+      "created_at": "2026-04-18T08:00:00Z",
+      "published_at": "2026-04-18T08:00:00Z",
+      "metadata": {
+        "platform_data": "Series B $65M, Accel + Andreessen Horowitz",
+        "launch_date": "2026-04-18",
+        "positioning_en": "Decagon owns \"resolution rate\" — a single, measurable metric that support leaders already track. Competitors say \"deflection,\" which is vaguer and easier to dispute. Metric ownership beats feature ownership.",
+        "positioning_zh": "Decagon 占有「解决率」——一个支持负责人已在跟踪的单一可测指标。竞品说「deflection（分流）」，更模糊更容易被挑战。占有指标比占有功能更强。"
+      }
+    },
+    {
+      "id": "1e737b43-33a6-42e5-841a-e68da28b3d1c",
+      "date": "2026-04-18",
+      "section": "daily_case",
+      "order_in_section": 1,
+      "title_en": "Klarna's AI vs 700 Humans: 12 Months Later",
+      "title_zh": "Klarna 的「AI 替代 700 人」：12 个月后",
+      "content_en": "## Background & Data\n\nKlarna's February 2024 announcement that its AI assistant replaced 700 full-time customer-service agents went viral. 18 months later, on April 18, 2026, Klarna published follow-up data: the AI handles 2.3M conversations monthly (84% autonomous resolution), average resolution time dropped from 11 minutes to under 2, and customer satisfaction (CSAT) actually rose 4 points. Notably absent: revenue impact data.\n\n## Analysis\n\n- **The metrics chosen frame the success story.** Resolution time and CSAT are easy wins for AI. Revenue impact, NPS detractor-conversion, and brand sentiment were not disclosed — the silence tells you where the shaky numbers live.\n- **Viral PR outperformed any ad budget.** Klarna got 18 months of \"AI success\" coverage from one data point. The number (\"700\") mattered more than the nuance — always optimize for one memorable data point.\n- **The follow-up report is a pattern worth stealing.** \"18-month check-in\" is an incredibly rare format in B2B AI marketing. Publishing one positions you as mature and evidence-based while competitors are still chasing the initial launch metric.\n\n## What You Can Do\n\n- Pick one memorable efficiency metric your AI product can claim — make it a number, not a percentage\n- Plan the 18-month follow-up post at launch; a planned check-in beats any ad campaign\n- Disclose what you measure, stay silent on what you don't — but know what you're hiding",
+      "content_zh": "## 背景与数据\n\nKlarna 在 2024 年 2 月宣布 AI 助手取代 700 名全职客服的消息疯传。18 个月后，2026 年 4 月 18 日，Klarna 发布后续数据：AI 每月处理 230 万次对话（84% 自主解决），平均解决时长从 11 分钟降至 2 分钟以内，CSAT 实际上升 4 分。值得注意的缺席：营收影响数据。\n\n## 分析\n\n- **所选指标框定了故事。** 解决时长和 CSAT 是 AI 的容易赢。营收影响、NPS 转化、品牌情感没披露——沉默告诉你哪里数字不稳。\n- **病毒 PR 胜过任何广告预算。** Klarna 凭一个数据点获得 18 个月「AI 成功」报道。数字（「700」）比任何 nuance 都重要——永远优化一个可记住的数据点。\n- **后续报告是值得抄的模式。**「18 个月回访」在 B2B AI 营销里是极其罕见的格式。发一份会让你显得成熟、基于证据，而竞品还在追最初的发布指标。\n\n## 你可以做什么\n\n- 选一个你 AI 产品能声称的可记住的效率指标——用数字，不用百分比\n- 在上线时就规划 18 个月后的回访文章；一个计划好的回访胜过广告\n- 披露你衡量的，不披露的就沉默——但要清楚你在隐藏什么",
+      "so_what_en": "Klarna's playbook: one memorable number (\"700\") + an 18-month check-in. Pick your number today; plan the follow-up report for 2027.",
+      "so_what_zh": "Klarna 的打法：一个可记住的数字（「700」）+ 18 个月回访。今天选你的数字，规划 2027 年的回访报告。",
+      "source_name": "Klarna IR",
+      "source_url": "https://www.klarna.com/international/press/",
+      "tags": [
+        "case-study",
+        "narrative",
+        "growth"
+      ],
+      "status": "published",
+      "created_at": "2026-04-18T08:00:00Z",
+      "published_at": "2026-04-18T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "fc235ae9-2198-43ef-a827-8103ab35a3ab",
+      "date": "2026-04-18",
+      "section": "daily_brief",
+      "order_in_section": 2,
+      "title_en": "ServiceNow AI Agents Hit General Availability with $2.5B Contract Backlog",
+      "title_zh": "ServiceNow AI Agents 正式 GA，合同积压 25 亿美元",
+      "content_en": "ServiceNow launched AI Agents for Now Platform on April 18, moving the product out of preview. The company disclosed $2.5B in pre-GA contract backlog, with 85% from existing Now Platform customers. Pricing: $25/user/month for a standard agent bundle, plus transaction fees on cross-system actions. Direct competition: Salesforce Agentforce.",
+      "content_zh": "ServiceNow 于 4 月 18 日将 AI Agents for Now Platform 推至 GA。披露 GA 前合同积压 25 亿美元，85% 来自既有 Now Platform 客户。定价：标准 agent 套餐 $25/用户/月，跨系统操作按交易收费。直接竞品：Salesforce Agentforce。",
+      "so_what_en": "Two horses in the enterprise AI agent race: ServiceNow and Salesforce. If you sell workflow-adjacent AI, pick which sibling you integrate into first — integrating both takes 2x effort and dilutes both partnerships.",
+      "so_what_zh": "企业级 AI agent 有两匹马：ServiceNow 和 Salesforce。如果你做工作流邻近 AI，选一家先集成——两家都做工作量翻倍且分散两边关系。",
+      "source_name": "ServiceNow IR",
+      "source_url": "https://investors.servicenow.com/",
+      "tags": [
+        "product",
+        "industry"
+      ],
+      "status": "published",
+      "created_at": "2026-04-18T08:00:00Z",
+      "published_at": "2026-04-18T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "0e52bae8-f420-4548-8c81-14c1c218f22b",
+      "date": "2026-04-18",
+      "section": "launch_radar",
+      "order_in_section": 2,
+      "title_en": "Sierra — The AI Employee Platform from Bret Taylor",
+      "title_zh": "Sierra —— Bret Taylor 的 AI 员工平台",
+      "content_en": "AI platform for building \"AI employees\" that handle sales, support, and onboarding conversations. Founded by Bret Taylor (ex-Salesforce, ex-Facebook CTO) and Clay Bavor (ex-Google). $500M raise at $4.5B valuation. Customers include Sonos, WeightWatchers, SiriusXM.",
+      "content_zh": "AI 平台，用于构建处理销售、支持、onboarding 对话的「AI 员工」。由 Bret Taylor（前 Salesforce、Facebook CTO）和 Clay Bavor（前 Google）创办。融资 5 亿美元，估值 45 亿。客户包括 Sonos、WeightWatchers、SiriusXM。",
+      "so_what_en": "- \"AI employee\" framing gets HR and CFO in the buying conversation, not just IT\n- If you sell a Sierra-adjacent tool, rebrand from \"assistant\" to \"employee\" in all buyer materials\n- Watch which verticals Sierra onboards first — those become the template competitors copy",
+      "so_what_zh": "- 「AI 员工」叙事把 HR 和 CFO 拉进购买决策圈，不只是 IT\n- 如果你做 Sierra 邻近工具，在所有买家材料里把「助手」改成「员工」\n- 观察 Sierra 首批上线哪些垂直——那就是竞品会复制的模板",
+      "source_name": "Sierra",
+      "source_url": "https://sierra.ai/",
+      "tags": [
+        "product",
+        "agents",
+        "funding"
+      ],
+      "status": "published",
+      "created_at": "2026-04-18T08:00:00Z",
+      "published_at": "2026-04-18T08:00:00Z",
+      "metadata": {
+        "platform_data": "Series B $500M at $4.5B",
+        "launch_date": "2026-04-18",
+        "positioning_en": "Sierra names their product \"AI employees\" — a buyer-lens term. \"AI agents\" is a tech term; \"AI employees\" lets a CFO immediately compare to headcount cost. The label moves the conversation to a different budget line.",
+        "positioning_zh": "Sierra 把产品命名为「AI 员工」——买家视角的词。「AI agent」是技术词；「AI 员工」让 CFO 立刻对比人力成本。这个标签把对话挪到了不同的预算科目。"
+      }
+    },
+    {
+      "id": "56751f79-32ad-4477-936c-6a11d1650550",
+      "date": "2026-04-18",
+      "section": "daily_brief",
+      "order_in_section": 3,
+      "title_en": "JPMorgan Rolls Out Internal AI Platform to 300K Employees",
+      "title_zh": "JPMorgan 向 30 万员工推出内部 AI 平台",
+      "content_en": "JPMorgan announced on April 18 that its internal LLM Suite is now available to all 300K+ employees globally, up from 60K in pilot. Powered by a 72B parameter internal model trained on the bank's own data, plus selected API calls to external frontier models. Jamie Dimon called it \"foundational infrastructure, on par with Bloomberg Terminal.\"",
+      "content_zh": "JPMorgan 于 4 月 18 日宣布其内部 LLM Suite 向全球 30 万+ 员工开放，此前试点阶段为 6 万人。由一个 720 亿参数、用银行自有数据训练的内部模型驱动，加上对外部前沿模型的选择性 API 调用。Jamie Dimon 称之为「基础设施，等同 Bloomberg Terminal」。",
+      "so_what_en": "Financial services now has a gold-standard internal AI platform story. If you sell into banks, prep a \"how do we compare to JPM's LLM Suite\" pre-built answer — it will come up.",
+      "so_what_zh": "金融服务现在有了内部 AI 平台的金标准叙事。如果你卖给银行，准备一份「我们对比 JPM LLM Suite 如何」的预制答案——一定会被问到。",
+      "source_name": "Bloomberg",
+      "source_url": "https://www.bloomberg.com/technology",
+      "tags": [
+        "industry",
+        "product"
+      ],
+      "status": "published",
+      "created_at": "2026-04-18T08:00:00Z",
+      "published_at": "2026-04-18T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "e27c7307-aa16-48b3-ab5a-9385ab0afdf8",
+      "date": "2026-04-18",
+      "section": "daily_brief",
+      "order_in_section": 4,
+      "title_en": "Amazon Q for Developers Hits 1M Seats, Ships Enterprise Tier",
+      "title_zh": "Amazon Q for Developers 突破百万座席，发布企业版",
+      "content_en": "AWS disclosed Amazon Q for Developers reached 1M paid seats on April 18 and launched an Enterprise tier at $75/user/month (up from $19 Pro). Enterprise adds: audit logs, RBAC, custom code retrieval, and private VPC compute. AWS claims 72% code-acceptance rate on internal benchmarks, comparable to GitHub Copilot Enterprise.",
+      "content_zh": "AWS 于 4 月 18 日披露 Amazon Q for Developers 达 100 万付费座席，并发布企业版 $75/用户/月（Pro 版 $19）。企业版新增：审计日志、RBAC、自定义代码检索、私有 VPC 算力。AWS 声称内部 benchmark 代码采纳率 72%，与 GitHub Copilot 企业版相当。",
+      "so_what_en": "Dev tool pricing bifurcates: $20 self-serve or $75+ enterprise, no middle. If your dev tool lives at $30-50/user/mo, you're in a pricing desert — pick a side.",
+      "so_what_zh": "开发工具定价分化：$20 self-serve 或 $75+ 企业版，中间地带消失。如果你的开发工具在 $30-50 区间，你处于定价沙漠——选边站。",
+      "source_name": "AWS Blog",
+      "source_url": "https://aws.amazon.com/blogs/",
+      "tags": [
+        "pricing",
+        "product"
+      ],
+      "status": "published",
+      "created_at": "2026-04-18T08:00:00Z",
+      "published_at": "2026-04-18T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "c1822543-203a-4ea7-9889-c97a8cf170c9",
+      "date": "2026-04-18",
+      "section": "daily_brief",
+      "order_in_section": 5,
+      "title_en": "Google Cloud Vertex AI Adds 4 Industry-Specific SKUs",
+      "title_zh": "Google Cloud Vertex AI 新增 4 个垂直行业 SKU",
+      "content_en": "Google Cloud launched industry-specific Vertex AI SKUs for Healthcare, Financial Services, Retail, and Manufacturing on April 18. Each SKU bundles pre-approved domain datasets, compliance attestations (HIPAA, SOC 2, PCI-DSS as relevant), and a default model card tuned for the vertical. Pricing: 25-40% premium over generic Vertex.",
+      "content_zh": "Google Cloud 于 4 月 18 日发布 Vertex AI 的 4 个垂直行业 SKU：医疗、金融、零售、制造。每个 SKU 打包预审域数据集、合规认证（按需 HIPAA、SOC 2、PCI-DSS）以及针对垂直调优的默认 model card。定价：比通用版 Vertex 溢价 25-40%。",
+      "so_what_en": "Vertical SKUs are the new pricing tier. Your horizontal AI product now has 4 comparables — be ready to explain why your $X/user is cheaper than Google's healthcare tier and more tailored than generic Vertex.",
+      "so_what_zh": "垂直 SKU 是新的定价 tier。你的横向 AI 产品现在多了 4 个可比较对象——准备好解释为什么你的 $X/用户比 Google 医疗版便宜，又比通用 Vertex 更贴合。",
+      "source_name": "Google Cloud Blog",
+      "source_url": "https://cloud.google.com/blog",
+      "tags": [
+        "pricing",
+        "product"
+      ],
+      "status": "published",
+      "created_at": "2026-04-18T08:00:00Z",
+      "published_at": "2026-04-18T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "0e7cfa2f-2814-4417-8b01-cc1e4250d31d",
+      "date": "2026-04-18",
+      "section": "daily_brief",
+      "order_in_section": 6,
+      "title_en": "Microsoft Azure AI Grows 83% YoY in Q3 Earnings, Satya Calls It \"Unreasonable\"",
+      "title_zh": "Microsoft Azure AI Q3 同比增长 83%，Satya 称「超预期」",
+      "content_en": "Microsoft reported Q3 FY26 earnings on April 18: Azure AI revenue grew 83% YoY, a re-acceleration after four quarters of gradual deceleration. Satya Nadella called the growth \"unreasonable\" on the earnings call and attributed it to agent-workload inference demand exceeding pure chat. Capex guidance raised to $148B for FY26, up from $120B.",
+      "content_zh": "Microsoft 于 4 月 18 日发布 Q3 FY26 财报：Azure AI 营收同比增长 83%，在连续四个季度渐次减速后重新加速。Satya Nadella 在电话会上称增长「超预期」，归因于 agent 工作负载推理需求超过纯 chat 需求。FY26 capex 指引上调至 1480 亿美元（原 1200 亿）。",
+      "so_what_en": "Agent workloads are driving the next Azure inflection. If you build on Azure OpenAI, your 2027 capacity request should assume agent-inference volumes 3-5x your chat volumes.",
+      "so_what_zh": "Agent 工作负载正推动 Azure 下一波拐点。如果你基于 Azure OpenAI 做产品，2027 年算力申请应假设 agent 推理量是 chat 量的 3-5 倍。",
+      "source_name": "Microsoft IR",
+      "source_url": "https://www.microsoft.com/en-us/investor",
+      "tags": [
+        "industry",
+        "pricing"
+      ],
+      "status": "published",
+      "created_at": "2026-04-18T08:00:00Z",
+      "published_at": "2026-04-18T08:00:00Z",
+      "metadata": {}
+    }
+  ]
+}

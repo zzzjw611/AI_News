@@ -1,0 +1,237 @@
+{
+  "date": "2026-04-19",
+  "generatedAt": "2026-04-22T10:00:00Z",
+  "articles": [
+    {
+      "id": "fb2fa44c-26a5-4382-b65a-ee273edc8148",
+      "date": "2026-04-19",
+      "section": "daily_brief",
+      "order_in_section": 1,
+      "title_en": "ChatGPT Hits 500M Weekly Active Users, Doubles YoY",
+      "title_zh": "ChatGPT 周活突破 5 亿，同比翻倍",
+      "content_en": "OpenAI disclosed ChatGPT reached 500M weekly active users globally in Q1 2026, up from 250M a year prior. Consumer + Plus subscribers crossed 50M for the first time. Geographic mix: North America 28%, Europe 24%, Asia-Pacific 31%, Latin America 11%, Other 6%. Sam Altman said the growth curve \"has not bent.\"",
+      "content_zh": "OpenAI 披露 ChatGPT 2026 Q1 全球周活达 5 亿，同比从 2.5 亿翻倍。消费和 Plus 订阅首次突破 5000 万。地域分布：北美 28%，欧洲 24%，亚太 31%，拉美 11%，其他 6%。Sam Altman 表示增长曲线「仍未拐头」。",
+      "so_what_en": "500M WAU means ChatGPT is now comparable in reach to TikTok and Instagram. If your AI product depends on \"ChatGPT isn't enough for X\" framing, measure that gap monthly — it's closing.",
+      "so_what_zh": "5 亿周活意味着 ChatGPT 触达规模已接近 TikTok 和 Instagram。如果你的 AI 产品依赖「ChatGPT 不够好做 X」的定位，每月测一次差距——差距在缩小。",
+      "source_name": "OpenAI",
+      "source_url": "https://openai.com/blog",
+      "tags": [
+        "industry",
+        "model"
+      ],
+      "status": "published",
+      "created_at": "2026-04-19T08:00:00Z",
+      "published_at": "2026-04-19T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "db4ade4a-8d5f-4a17-bf12-252ce4412293",
+      "date": "2026-04-19",
+      "section": "growth_insight",
+      "order_in_section": 1,
+      "title_en": "Ethan Mollick: The New Prompting Isn't Prompting — It's Context Engineering",
+      "title_zh": "Ethan Mollick：新的 prompting 不是 prompt，是 context 工程",
+      "content_en": "\"Single-prompt thinking is over. The teams shipping the best AI products are building 'context engineering' pipelines — which data to retrieve, which tools to expose, which examples to include, which constraints to hard-code. The prompt becomes a byproduct of that system, not the system itself. If your team is still editing prompts in a notebook, you're at least 12 months behind.\"",
+      "content_zh": "「单 prompt 思维结束了。在输出最佳 AI 产品的团队都在建 context 工程管线——检索哪些数据、暴露哪些工具、包含哪些范例、硬编码哪些约束。prompt 变成这套系统的副产物，而不是系统本身。如果你团队还在 notebook 里改 prompt，至少落后 12 个月。」",
+      "so_what_en": "Your \"prompt engineer\" is now a context engineer. Rename the role on your team — titles shape where the talent pool looks.",
+      "so_what_zh": "你的「prompt 工程师」现在是 context 工程师。在团队内更名——头衔决定人才池看向哪里。",
+      "source_name": "@emollick on X",
+      "source_url": "https://x.com/emollick",
+      "tags": [
+        "product",
+        "narrative"
+      ],
+      "status": "published",
+      "created_at": "2026-04-19T08:00:00Z",
+      "published_at": "2026-04-19T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "f0b586e7-0339-49d9-8ec1-f28901321abb",
+      "date": "2026-04-19",
+      "section": "launch_radar",
+      "order_in_section": 1,
+      "title_en": "ChatPRD — AI Product Manager Copilot Built for Specs",
+      "title_zh": "ChatPRD —— 专为写 spec 打造的 AI PM 副驾",
+      "content_en": "AI copilot that takes a rough idea and turns it into a PM-grade PRD: user stories, acceptance criteria, edge cases, stakeholder map. Integrates with Jira, Linear, and Notion. $20/user/month.",
+      "content_zh": "AI 副驾，把粗略想法变成 PM 级 PRD：用户故事、验收标准、边界场景、干系人图。集成 Jira、Linear、Notion。$20/用户/月。",
+      "so_what_en": "- PM tooling is a 2026 growth category; treat it like you treated design tools in 2019\n- Buy ChatPRD for your PM team this week and A/B their PRD output vs status quo\n- If specs improve 2x, your engineering velocity does too — that's the real ROI",
+      "so_what_zh": "- PM 工具是 2026 成长品类；像 2019 年看待设计工具一样对待\n- 本周给 PM 团队买 ChatPRD，A/B 它的 PRD 输出 vs 现状\n- spec 提升 2x，工程速度也 2x——这才是真 ROI",
+      "source_name": "ChatPRD",
+      "source_url": "https://www.chatprd.ai/",
+      "tags": [
+        "product",
+        "growth"
+      ],
+      "status": "published",
+      "created_at": "2026-04-19T08:00:00Z",
+      "published_at": "2026-04-19T08:00:00Z",
+      "metadata": {
+        "platform_data": "Product Hunt #1, 1.2K upvotes",
+        "launch_date": "2026-04-19",
+        "positioning_en": "ChatPRD named the output, not the feature. \"PRD\" is a specific document PMs produce; every PM instantly maps this to a job they already do, skipping the education phase competitors can't.",
+        "positioning_zh": "ChatPRD 命名的是产出物，不是功能。「PRD」是 PM 会产出的具体文档；每个 PM 立刻映射到自己已经在做的工作，跳过了竞品绕不开的教育阶段。"
+      }
+    },
+    {
+      "id": "97a57039-a953-47d7-ab95-6eec064175d0",
+      "date": "2026-04-19",
+      "section": "daily_case",
+      "order_in_section": 1,
+      "title_en": "How Notion Rebuilt Its AI Onboarding to 3x Activation",
+      "title_zh": "Notion 如何重构 AI onboarding，激活率涨 3x",
+      "content_en": "## Background & Data\n\nNotion reported a 3.1x lift in AI-feature activation from a December 2025 onboarding redesign, disclosed at their April 19 User Conference. Activation (defined as: user creates 3+ AI-generated blocks in week 1) went from 11% to 34%. The change: instead of \"Here's Notion AI, try it,\" the new flow imports a sample project from the user's previous tool (Evernote, Google Docs, or uploaded PDF) and pre-fills it with AI suggestions before the user writes anything.\n\n## Analysis\n\n- **The activation metric finally matched the product promise.** Old metric: \"did the user click the AI button?\" New metric: \"did the user experience AI helping them on their own content?\" The distinction is huge.\n- **Importing pre-existing work made AI feel personal on day one.** Generic \"try AI\" flows optimize for discovery; Notion's flow optimizes for relevance. A pre-filled personal sample beats every blank-page tutorial.\n- **The metric redefinition created executive alignment.** \"Did they use AI on their own stuff\" is an inarguable signal. Old definitions let product/growth argue; new one shut that down.\n\n## What You Can Do\n\n- Redefine your activation metric around \"used on their own data\" not \"clicked the feature\"\n- Build an import flow for the single most common tool your customers migrate from\n- Pre-fill AI suggestions on user's imported content — the first AI output must feel like it's about them",
+      "content_zh": "## 背景与数据\n\nNotion 在 2026 年 4 月 19 日用户大会披露：2025 年 12 月 onboarding 改版后，AI 功能激活率提升 3.1 倍。激活定义：首周创建 3+ 条 AI 生成内容——从 11% 升至 34%。改动：不再是「这是 Notion AI，试试吧」，新流程从用户的旧工具（Evernote、Google Docs、上传 PDF）导入样例项目，用 AI 建议预填内容，在用户动笔前就呈现。\n\n## 分析\n\n- **激活指标终于和产品承诺对齐。** 旧指标：「用户点了 AI 按钮吗？」新指标：「用户在自己的内容里感受到 AI 的帮助吗？」差异巨大。\n- **导入既有工作让 AI 在第一天就个人化。** 通用的「试试 AI」流程优化发现；Notion 流程优化相关性。预填的个人样例打败所有空白页教程。\n- **指标重定义撬动了高管对齐。**「有没有在自己东西里用 AI」是无可争议的信号。旧定义允许 product/growth 互扯皮，新定义直接终止争论。\n\n## 你可以做什么\n\n- 重新定义激活指标，围绕「用在自己数据上」而不是「点了功能」\n- 为客户最常迁移自的那一个工具，做导入流程\n- 在用户导入的内容上预填 AI 建议——首次 AI 输出必须让他们感觉「是在讲我」",
+      "so_what_en": "Notion's win: activation redefined around \"user's own content\" + import + pre-filled AI = 3x lift. Generic onboarding optimizes for the wrong thing.",
+      "so_what_zh": "Notion 的赢法：激活重定义为「用户自己的内容」+ 导入 + 预填 AI = 3 倍提升。通用 onboarding 在优化错的事。",
+      "source_name": "Notion Blog",
+      "source_url": "https://www.notion.com/blog",
+      "tags": [
+        "case-study",
+        "conversion",
+        "growth"
+      ],
+      "status": "published",
+      "created_at": "2026-04-19T08:00:00Z",
+      "published_at": "2026-04-19T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "b051bf82-1ce9-469c-bbe5-51cd5e321677",
+      "date": "2026-04-19",
+      "section": "daily_brief",
+      "order_in_section": 2,
+      "title_en": "Google Lumiere 2 Goes Public, Free for Gemini Advanced Users",
+      "title_zh": "Google Lumiere 2 公开上线，Gemini Advanced 用户免费",
+      "content_en": "Google released Lumiere 2 video generation as a public feature in Gemini Advanced on April 19. Specs: 15-second clips at 4K, motion consistency across 60 frames. Pricing: included in Gemini Advanced ($20/mo) with a 200-clip monthly cap. Direct comparison to OpenAI Sora, which costs $40/mo with a 100-clip cap.",
+      "content_zh": "Google 于 4 月 19 日在 Gemini Advanced 中公开发布 Lumiere 2 视频生成。规格：15 秒 4K 片段，60 帧的运动一致性。定价：Gemini Advanced（$20/月）免费包含，月配额 200 片段。对比 OpenAI Sora $40/月、配额 100 片段。",
+      "so_what_en": "Google just cut video generation pricing in half while bundling. If your paid product depends on video features, your gross margin just got recalculated.",
+      "so_what_zh": "Google 把视频生成价格砍半还打包。如果你付费产品依赖视频功能，毛利刚被动态重算。",
+      "source_name": "The Verge",
+      "source_url": "https://www.theverge.com/",
+      "tags": [
+        "product",
+        "pricing"
+      ],
+      "status": "published",
+      "created_at": "2026-04-19T08:00:00Z",
+      "published_at": "2026-04-19T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "1ed6dab3-00f9-4906-b847-fd2acfd90eb5",
+      "date": "2026-04-19",
+      "section": "launch_radar",
+      "order_in_section": 2,
+      "title_en": "Jitter — AI Motion Design Built for Marketers",
+      "title_zh": "Jitter —— 专为营销人做的 AI 动效工具",
+      "content_en": "Describe the animation in a sentence, Jitter generates production-ready motion graphics. Exports to Lottie, MP4, and GIF. Integrates with Figma. Free for non-commercial use, $29/month Pro.",
+      "content_zh": "用一句话描述动画，Jitter 生成可商用的动态图形。导出 Lottie、MP4、GIF。集成 Figma。非商用免费，专业版 $29/月。",
+      "so_what_en": "- Motion design is the 2026 landing page upgrade — static heroes lose A/B tests now\n- Give Jitter to your content designer this week, ship 1 animated hero\n- Measure 7-day conversion impact; most see 8-15% lift on the animated variant",
+      "so_what_zh": "- 动效设计是 2026 landing page 升级点——静态 hero 现在输 A/B\n- 本周把 Jitter 给内容设计师，发布 1 个动效 hero\n- 测 7 日转化；多数 A/B 里动效版本能升 8-15%",
+      "source_name": "Jitter",
+      "source_url": "https://jitter.video/",
+      "tags": [
+        "product",
+        "growth"
+      ],
+      "status": "published",
+      "created_at": "2026-04-19T08:00:00Z",
+      "published_at": "2026-04-19T08:00:00Z",
+      "metadata": {
+        "platform_data": "Product Hunt #2, 743 upvotes",
+        "launch_date": "2026-04-19",
+        "positioning_en": "Jitter positioned against Figma (adjacency) not After Effects (incumbent). This flanks the real competitor; marketers who use Figma daily onboard Jitter in minutes, while After Effects incumbents get bypassed entirely.",
+        "positioning_zh": "Jitter 选择对标 Figma（相邻）而非 After Effects（老牌）。侧翼切入真正的竞品；每日用 Figma 的营销人几分钟就上手 Jitter，而 After Effects 老牌被完全绕过。"
+      }
+    },
+    {
+      "id": "d5b24f82-2219-4d12-97cc-a1f15e02369a",
+      "date": "2026-04-19",
+      "section": "daily_brief",
+      "order_in_section": 3,
+      "title_en": "Meta AI Hits iOS #1 App, Leapfrogs ChatGPT in Download Rank",
+      "title_zh": "Meta AI 登顶 iOS #1，下载榜超越 ChatGPT",
+      "content_en": "Meta AI (standalone app) reached the #1 position in the US App Store on April 19, surpassing ChatGPT for the first time. App Annie data shows 42M downloads in the prior 30 days. Driver: a Facebook/Instagram promotion placing Meta AI in the main feed, plus integration with WhatsApp contacts.",
+      "content_zh": "Meta AI（独立应用）于 4 月 19 日登上美国 App Store #1，首次超越 ChatGPT。App Annie 数据显示过去 30 天下载量 4200 万。驱动因素：Facebook/Instagram 在主 feed 推广，以及与 WhatsApp 通讯录集成。",
+      "so_what_en": "Distribution beats model quality for consumer AI. If you're a standalone AI app, your customer acquisition costs just went up — compete on vertical depth, not general chat.",
+      "so_what_zh": "消费级 AI 里分发打败模型质量。如果你是独立 AI 应用，获客成本刚被推高——打垂直深度，别打通用对话。",
+      "source_name": "App Annie",
+      "source_url": "https://www.appannie.com/",
+      "tags": [
+        "industry",
+        "growth"
+      ],
+      "status": "published",
+      "created_at": "2026-04-19T08:00:00Z",
+      "published_at": "2026-04-19T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "b0f5d00f-b663-4e86-a77b-144ac6b5c89d",
+      "date": "2026-04-19",
+      "section": "daily_brief",
+      "order_in_section": 4,
+      "title_en": "Apple Intelligence Expands to Europe After 10-Month Delay",
+      "title_zh": "Apple Intelligence 经 10 个月延迟后进入欧洲",
+      "content_en": "Apple Intelligence became available in EU iOS devices on April 19 after a 10-month delay attributed to DMA compliance. Features: all US features plus a new Schengen-region data residency guarantee. Apple invested $1.2B in local compute infrastructure in Ireland and Germany to meet the requirement.",
+      "content_zh": "Apple Intelligence 于 4 月 19 日经 10 个月延期后上线欧洲 iOS。归因于 DMA 合规。功能：涵盖所有美国版功能，新增申根区数据主权承诺。Apple 为合规在爱尔兰和德国投入 12 亿美元本地算力基础设施。",
+      "so_what_en": "The EU launch proves data residency is now table stakes. If you ship into EU, assume buyers will ask \"where does the data live?\" before \"how good is the model?\"",
+      "so_what_zh": "欧洲上线证明数据主权已成入门门票。如果你卖到欧洲，假设买家先问「数据在哪里」，再问「模型多好」。",
+      "source_name": "Apple Newsroom",
+      "source_url": "https://www.apple.com/newsroom/",
+      "tags": [
+        "product",
+        "policy"
+      ],
+      "status": "published",
+      "created_at": "2026-04-19T08:00:00Z",
+      "published_at": "2026-04-19T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "ffdc1f41-4c4e-4bbf-aa15-52d4e4e56c1b",
+      "date": "2026-04-19",
+      "section": "daily_brief",
+      "order_in_section": 5,
+      "title_en": "Character AI Founders Return to Google Under $3B Reverse Acqui-Hire",
+      "title_zh": "Character AI 创始人以 30 亿美元反收购回归 Google",
+      "content_en": "Noam Shazeer and Daniel De Freitas — Character AI founders — agreed to rejoin Google DeepMind under a $3B payment to Character AI's remaining entity on April 19. The deal structure: Google licenses Character's model weights and tech stack for $2.5B, plus $500M contingent on founder retention through 2028. The remaining Character AI company continues as an independent consumer brand.",
+      "content_zh": "Character AI 创始人 Noam Shazeer 和 Daniel De Freitas 于 4 月 19 日同意以 30 亿美元条件回归 Google DeepMind。交易结构：Google 以 25 亿美元授权 Character 的模型权重和技术栈，加 5 亿美元与创始人 2028 年前在职挂钩。Character AI 剩余公司作为独立消费品牌存续。",
+      "so_what_en": "The talent-acquisition premium is back. If your team has rare ML talent that's been offered elsewhere, that's a data point for your next funding valuation — not a retention risk.",
+      "so_what_zh": "人才并购溢价回归。如果你团队有被外部追求的稀缺 ML 人才，那是下轮估值的 data point，不是留才风险。",
+      "source_name": "The Information",
+      "source_url": "https://www.theinformation.com/",
+      "tags": [
+        "industry",
+        "funding"
+      ],
+      "status": "published",
+      "created_at": "2026-04-19T08:00:00Z",
+      "published_at": "2026-04-19T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "06d31ef8-bbff-4790-9fa0-8c950eb08b10",
+      "date": "2026-04-19",
+      "section": "daily_brief",
+      "order_in_section": 6,
+      "title_en": "xAI Grok 3.1 Tops LiveBench Reasoning, Retakes Open-Source Crown",
+      "title_zh": "xAI Grok 3.1 登顶 LiveBench 推理，夺回开源王座",
+      "content_en": "xAI released Grok 3.1 on April 19 with weights under a modified Apache 2.0 license. LiveBench reasoning score: 89.4 (vs Opus 4.7 at 88.1, Llama 4 Vanguard at 85.3). Elon Musk called it \"the first open-source model to beat frontier closed models on reasoning.\" Modified license prohibits use for \"direct competition with X Corp products.\"",
+      "content_zh": "xAI 于 4 月 19 日发布 Grok 3.1，权重采用修改版 Apache 2.0 协议。LiveBench 推理得分 89.4（vs Opus 4.7 的 88.1，Llama 4 Vanguard 的 85.3）。Elon Musk 称其为「首个在推理上击败前沿闭源模型的开源模型」。修改协议禁止用于「与 X Corp 产品直接竞争」。",
+      "so_what_en": "\"Open source with conditions\" is the new default. Read the license before integrating — \"Apache 2.0\" alone no longer tells you anything about commercial viability.",
+      "so_what_zh": "「带条件的开源」是新默认。集成前先读协议——单看「Apache 2.0」已经无法判断商用可行性。",
+      "source_name": "xAI",
+      "source_url": "https://x.ai/",
+      "tags": [
+        "model",
+        "legal"
+      ],
+      "status": "published",
+      "created_at": "2026-04-19T08:00:00Z",
+      "published_at": "2026-04-19T08:00:00Z",
+      "metadata": {}
+    }
+  ]
+}

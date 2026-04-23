@@ -1,0 +1,238 @@
+{
+  "date": "2026-04-20",
+  "generatedAt": "2026-04-22T10:00:00Z",
+  "articles": [
+    {
+      "id": "bb78b444-3ffa-439a-8a47-6f59711c0350",
+      "date": "2026-04-20",
+      "section": "daily_brief",
+      "order_in_section": 1,
+      "title_en": "LangChain 1.0 Ships Stable, Deprecates LangChain Expression Language (LCEL)",
+      "title_zh": "LangChain 1.0 正式版发布，弃用 LCEL",
+      "content_en": "LangChain released 1.0 on April 20 after 18 months of beta. The stable API drops LangChain Expression Language in favor of a typed graph builder modeled on TypeGraph. Harrison Chase said 1.0 is the first version where \"we promise backwards compatibility for 12 months.\" LangGraph is folded into the core package; LangSmith remains separate.",
+      "content_zh": "LangChain 在 4 月 20 日发布 1.0 正式版，结束 18 个月 beta。稳定 API 弃用 LangChain 表达式语言（LCEL），改为基于 TypeGraph 的类型化图构建器。Harrison Chase 表示 1.0 是首个「承诺向后兼容 12 个月」的版本。LangGraph 并入核心包，LangSmith 保持独立。",
+      "so_what_en": "LangChain finally stopped breaking APIs. If you avoided LangChain because of churn, now's the retest window. But check who your customer base actually uses — LangChain devs skew indie; enterprise buyers increasingly want LlamaIndex or Vercel AI SDK.",
+      "so_what_zh": "LangChain 终于不再破坏 API。之前因为频繁变更躲开的人，现在是重评估的窗口。但先看你的用户基本盘用什么——LangChain 社区偏独立开发者，企业买家越来越倾向 LlamaIndex 或 Vercel AI SDK。",
+      "source_name": "LangChain Blog",
+      "source_url": "https://blog.langchain.dev/",
+      "tags": [
+        "product",
+        "agents"
+      ],
+      "status": "published",
+      "created_at": "2026-04-20T08:00:00Z",
+      "published_at": "2026-04-20T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "f057b167-1008-4c85-8831-9d892febc414",
+      "date": "2026-04-20",
+      "section": "growth_insight",
+      "order_in_section": 1,
+      "title_en": "Packy McCormick: The AI Gold Rush Is Over, the Pickaxe Era Begins",
+      "title_zh": "Packy McCormick：AI 淘金热结束，卖铲时代开始",
+      "content_en": "\"Every fund and founder spent 2023-2025 chasing foundation models. Returns show: the surviving winners are the tooling layer — evals, agents, data pipelines, observability. Not because the models lost, but because the market finally rewards picks-and-shovels as margin becomes scarce at the top. If you're still pitching a 'next-gen foundation model' in 2026, you're late to the previous war.\"",
+      "content_zh": "「每家基金和创始人在 2023-2025 年都在追基础模型。回报数据显示：活下来的赢家是工具层——evals、agents、数据管道、可观测性。不是因为模型输了，而是市场终于回报卖铲人——顶端的毛利变稀缺。如果你 2026 年还在讲下一代基础模型的故事，你迟到了。」",
+      "so_what_en": "Pickaxe positioning beats gold positioning in 2026. Rebrand your feature as 'infrastructure for X' rather than 'AI that does X' — the category multiple is 3x higher.",
+      "so_what_zh": "2026 年卖铲定位打败淘金定位。把功能重包装成「给 X 的基础设施」而不是「做 X 的 AI」——品类估值倍数高 3 倍。",
+      "source_name": "@packym on Substack",
+      "source_url": "https://www.notboring.co/",
+      "tags": [
+        "narrative",
+        "industry"
+      ],
+      "status": "published",
+      "created_at": "2026-04-20T08:00:00Z",
+      "published_at": "2026-04-20T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "d1362bf5-5780-4818-8a9b-4411ff24daf3",
+      "date": "2026-04-20",
+      "section": "launch_radar",
+      "order_in_section": 1,
+      "title_en": "Braintrust — Eval Platform That Actually Integrates with Your CI",
+      "title_zh": "Braintrust —— 真正集成进你 CI 的评估平台",
+      "content_en": "Evaluation and observability platform for LLM apps. Run offline evals in your CI pipeline, trace production calls, compare model versions. Integrates with Jest, Pytest, GitHub Actions. Generous free tier (100K traces/month).",
+      "content_zh": "面向 LLM 应用的评估和可观测性平台。在 CI 管道里跑离线 eval、追踪生产调用、对比模型版本。集成 Jest、Pytest、GitHub Actions。免费额度慷慨（10 万 trace/月）。",
+      "so_what_en": "- Evals are finally a category, not a feature. Ship one this week or explain why you can't\n- Braintrust's CI integration kills the \"eval as one-off notebook\" antipattern\n- Your competitors who adopt evals first will compound quality faster than you can catch up",
+      "so_what_zh": "- Evals 终于成为一个品类，不是一个功能。本周上线一个或说清为什么不能\n- Braintrust 的 CI 集成解决了「eval 当一次性 notebook」的反模式\n- 先采用 eval 的竞品，质量复利速度你追不上",
+      "source_name": "Braintrust",
+      "source_url": "https://www.braintrust.dev/",
+      "tags": [
+        "product",
+        "growth"
+      ],
+      "status": "published",
+      "created_at": "2026-04-20T08:00:00Z",
+      "published_at": "2026-04-20T08:00:00Z",
+      "metadata": {
+        "platform_data": "YC S24 alum, $36M Series A",
+        "launch_date": "2026-04-20",
+        "positioning_en": "Braintrust positioned as \"CI for LLMs\" — a simile buyers immediately understand because they already value CI for code. Compare to competitors who still say \"LLM observability platform\" and need 200 words of education.",
+        "positioning_zh": "Braintrust 定位为「LLM 的 CI」——买家立刻能懂的比喻，因为他们已经重视代码 CI。对比还在说「LLM 可观测性平台」、需要 200 字教育的竞品，直觉效率差数量级。"
+      }
+    },
+    {
+      "id": "e5951466-c1a9-4078-90e7-aaf90054bc19",
+      "date": "2026-04-20",
+      "section": "daily_case",
+      "order_in_section": 1,
+      "title_en": "How Perplexity Raised $500M Off an Enterprise Pivot Narrative",
+      "title_zh": "Perplexity 如何靠「转型企业」叙事融到 5 亿",
+      "content_en": "## Background & Data\n\nPerplexity closed a $500M Series F at $9B valuation in April 2026. The round came 8 months after a reported internal memo shifted the company's 2026 priority from consumer search growth to enterprise Deep Research. Enterprise ARR reportedly jumped from $18M (Q4 2025) to $82M (Q1 2026). Consumer MAU flatlined around 30M.\n\n## Analysis\n\n- **The narrative pivot made the numbers.** Investors were cooling on consumer AI search (Google, ChatGPT eating share). Perplexity reframed the same product capabilities as \"enterprise Deep Research\" and suddenly competed with Factset and McKinsey budgets, not Google.\n- **They renamed their product, not just their audience.** \"Perplexity Enterprise\" became \"Deep Research\" — the name signals a different buyer, a different budget line, and dodged the consumer-AI commodity narrative.\n- **The 4x ARR step-up is the real proof.** Investors don't buy pivots without evidence. 60 days of strong enterprise pipeline data mattered more than any pitch deck.\n\n## What You Can Do\n\n- If your consumer AI product has enterprise interest, rename it for the enterprise lane — don't just re-target\n- Budget for 60 days of enterprise pipeline data before any fundraise that mentions the pivot\n- Your old consumer metrics stop counting the day the pivot ships; have new metrics ready",
+      "content_zh": "## 背景与数据\n\nPerplexity 于 2026 年 4 月完成 5 亿美元 F 轮，估值 90 亿。此轮融资是在一份内部备忘录泄露后 8 个月——那份备忘录把公司 2026 年优先级从消费级搜索增长转向企业级 Deep Research。企业 ARR 从 2025 Q4 的 1800 万跳升到 2026 Q1 的 8200 万。消费 MAU 在 3000 万附近停滞。\n\n## 分析\n\n- **叙事转向造就了数字。** 投资人对消费级 AI 搜索在降温（Google、ChatGPT 蚕食份额）。Perplexity 把同一产品能力重新包装为「企业级 Deep Research」，一下子对标的是 Factset 和 McKinsey 的预算，而不是 Google。\n- **他们重命名了产品，不只是重新定位受众。**「Perplexity Enterprise」改名「Deep Research」——名字暗示了不同的买家、不同的预算科目，还绕开了消费 AI 商品化叙事。\n- **4 倍 ARR 跃升才是真证据。** 投资人不会只凭 pivot 叙事买单。60 天强劲的企业 pipeline 数据比任何 pitch deck 都重要。\n\n## 你可以做什么\n\n- 如果你的消费 AI 产品有企业询盘，为企业版重命名，不要只是改投放\n- 在任何提及转型的融资之前，先备好 60 天的企业 pipeline 数据\n- 老的消费指标在转型上线那一天就失效了，准备好新指标",
+      "so_what_en": "Perplexity's lesson: enterprise pivot narratives need new product names and 60 days of pipeline data. Rebrand + evidence, not just slides.",
+      "so_what_zh": "Perplexity 的教训：企业转型叙事需要新产品名 + 60 天 pipeline 数据。重新包装 + 证据，不能只改 slide。",
+      "source_name": "TechCrunch",
+      "source_url": "https://techcrunch.com/",
+      "tags": [
+        "case-study",
+        "narrative",
+        "funding"
+      ],
+      "status": "published",
+      "created_at": "2026-04-20T08:00:00Z",
+      "published_at": "2026-04-20T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "52c84f2f-0c19-4fa8-afeb-9e1eafb83f5a",
+      "date": "2026-04-20",
+      "section": "daily_brief",
+      "order_in_section": 2,
+      "title_en": "OpenAI Responses API Hits General Availability with Built-In Eval Loop",
+      "title_zh": "OpenAI Responses API 正式 GA，内置 eval 循环",
+      "content_en": "OpenAI moved the Responses API out of preview on April 20. New in GA: an integrated eval loop that runs user-defined rubrics against every tool-call trajectory, plus a batch replay mode that re-runs historical conversations under new system prompts. Pricing is unchanged; evals are billed separately at $0.40/1M eval tokens.",
+      "content_zh": "OpenAI 于 4 月 20 日将 Responses API 从 preview 推至 GA。新增：集成的 eval 循环，按用户定义的评分标准对每次 tool-call 轨迹评分；以及 batch 回放模式，用新 system prompt 重跑历史对话。主接口定价不变，eval 另按 $0.40/百万 eval token 计费。",
+      "so_what_en": "Built-in evals is the real product. Stop writing your own golden-set harness if you're already on OpenAI; the migration cost is a weekend, the saved cycle time is months.",
+      "so_what_zh": "内置 eval 才是真产品。如果已经在用 OpenAI，别再自己写 golden-set 测试框架了——迁移成本一周末，省下来的周期以月计。",
+      "source_name": "OpenAI",
+      "source_url": "https://platform.openai.com/docs/api-reference/responses",
+      "tags": [
+        "product",
+        "agents"
+      ],
+      "status": "published",
+      "created_at": "2026-04-20T08:00:00Z",
+      "published_at": "2026-04-20T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "89fae6d8-d802-4d53-adc8-b9540f115f5e",
+      "date": "2026-04-20",
+      "section": "launch_radar",
+      "order_in_section": 2,
+      "title_en": "Mem0 — Open-Source Long-Term Memory for AI Agents",
+      "title_zh": "Mem0 —— 面向 AI Agent 的开源长期记忆",
+      "content_en": "Drop-in memory layer for LLM apps. Stores user preferences, facts, and conversation history in a vector-graph hybrid. Self-host or hosted tier. Python/TS SDKs. 15K+ GitHub stars in 4 months.",
+      "content_zh": "LLM 应用的即插即用记忆层。以向量图谱混合方式存用户偏好、事实、对话历史。支持自托管或托管版。Python/TS SDK。4 个月获 1.5 万 GitHub star。",
+      "so_what_en": "- Memory is the next differentiator after tool-use in agent products\n- Add Mem0 to one conversational feature this week and measure 7-day retention\n- The first product in your category with real memory will out-retain everyone else",
+      "so_what_zh": "- 继 tool-use 之后，memory 是 agent 产品下一个差异化点\n- 本周把 Mem0 加到一个对话功能里，测 7 日留存\n- 品类里第一个有真正记忆的产品，留存会甩开其他玩家",
+      "source_name": "Mem0 on GitHub",
+      "source_url": "https://github.com/mem0ai/mem0",
+      "tags": [
+        "product",
+        "agents"
+      ],
+      "status": "published",
+      "created_at": "2026-04-20T08:00:00Z",
+      "published_at": "2026-04-20T08:00:00Z",
+      "metadata": {
+        "platform_data": "GitHub trending #2, 15.2K stars",
+        "launch_date": "2026-04-20",
+        "positioning_en": "Mem0 picked \"memory\" — a simple, loaded word buyers project onto. Avoids technical jargon like \"retrieval-augmented episodic store.\" Developer trust comes from MIT license and self-host option.",
+        "positioning_zh": "Mem0 选「记忆」——一个简单、有分量的词，买家自己会投射含义。绕开「检索增强的情景存储」这种术语。开发者信任来自 MIT 协议和自托管选项。"
+      }
+    },
+    {
+      "id": "c7f3ac0f-73dc-451f-b904-86ece728cc48",
+      "date": "2026-04-20",
+      "section": "daily_brief",
+      "order_in_section": 3,
+      "title_en": "Salesforce Reports Agentforce Contributed $340M to Q1 Revenue",
+      "title_zh": "Salesforce Q1 财报：Agentforce 贡献 3.4 亿营收",
+      "content_en": "Salesforce's Q1 FY27 earnings disclosed $340M in Agentforce revenue, up from $55M in Q4. Marc Benioff said Agentforce is \"the fastest product to $1B ARR in Salesforce history\" and projected 90% GM by year-end. The split: 60% from existing Service Cloud customers, 40% greenfield buyers drawn by Agentforce first.",
+      "content_zh": "Salesforce Q1 FY27 财报披露 Agentforce 贡献 3.4 亿营收，上季度为 5500 万。Marc Benioff 称 Agentforce 是「Salesforce 史上最快达到 10 亿 ARR 的产品」，并预计年底毛利率达 90%。结构：60% 来自既有 Service Cloud 客户，40% 是因 Agentforce 首次成交的新客。",
+      "so_what_en": "Enterprise AI agents are not hype — real ARR is here. If you're building in Agentforce's adjacency, map which accounts they're winning and where you can ride behind their distribution.",
+      "so_what_zh": "企业级 AI agent 不是炒作——真金白银的 ARR 已经来。如果你在 Agentforce 临近赛道做产品，梳理它在赢哪些账户，看你能否搭顺风车。",
+      "source_name": "Salesforce IR",
+      "source_url": "https://investor.salesforce.com/",
+      "tags": [
+        "industry",
+        "product"
+      ],
+      "status": "published",
+      "created_at": "2026-04-20T08:00:00Z",
+      "published_at": "2026-04-20T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "4b517fca-7c9a-4243-88e3-8d876f71b660",
+      "date": "2026-04-20",
+      "section": "daily_brief",
+      "order_in_section": 4,
+      "title_en": "Anthropic MCP Hub Launches with 200+ Verified Servers, Bypasses npm",
+      "title_zh": "Anthropic MCP Hub 上线，200+ 认证服务器，绕过 npm",
+      "content_en": "Anthropic launched MCP Hub, a first-party registry of Model Context Protocol servers, on April 20. The hub includes 200+ verified servers from partners including GitHub, Linear, Notion, and Stripe, and replaces npm as the default install path for `claude-mcp install`. Security: servers go through a static-analysis gate before listing.",
+      "content_zh": "Anthropic 于 4 月 20 日上线 MCP Hub，首方 Model Context Protocol 服务器注册表。包含 200+ 来自 GitHub、Linear、Notion、Stripe 等伙伴的认证服务器，替代 npm 成为 `claude-mcp install` 默认安装路径。安全方面：服务器上架前经过静态分析关卡。",
+      "so_what_en": "If you shipped an MCP server this year, get on the Hub before your competitors do. Being featured in Anthropic's default registry is the 2026 equivalent of being in the App Store launch lineup.",
+      "so_what_zh": "今年发布过 MCP 服务器的，赶在竞品前登上 Hub。被收录在 Anthropic 默认注册表，等价于 2026 年的「App Store 首发阵容」。",
+      "source_name": "Anthropic",
+      "source_url": "https://www.anthropic.com/news",
+      "tags": [
+        "product",
+        "agents",
+        "partnership"
+      ],
+      "status": "published",
+      "created_at": "2026-04-20T08:00:00Z",
+      "published_at": "2026-04-20T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "df563611-e1ee-4304-9260-28d60da3dfd4",
+      "date": "2026-04-20",
+      "section": "daily_brief",
+      "order_in_section": 5,
+      "title_en": "Microsoft Copilot Studio Slashes Agent Pricing 50% for Annual Commits",
+      "title_zh": "Microsoft Copilot Studio 年度承诺价下调 50%",
+      "content_en": "Microsoft announced a 50% price cut on Copilot Studio agents for customers on annual commitments of 10,000+ messages/month. Effective May 1, per-message pricing drops from $0.20 to $0.10. The cut applies to agents running in Copilot Studio, not embedded in M365 Copilot.",
+      "content_zh": "Microsoft 宣布对月消费 10,000 条以上的年度承诺客户，Copilot Studio agent 定价下调 50%。5 月 1 日生效，单条消息从 $0.20 降至 $0.10。下调仅适用 Copilot Studio 独立部署的 agent，不包括嵌入 M365 Copilot 的。",
+      "so_what_en": "Microsoft just made Salesforce Agentforce 2x more expensive by comparison. If you're selling an AI agent into an MS-heavy stack buyer, expect them to demand Copilot Studio parity within 90 days.",
+      "so_what_zh": "Microsoft 把 Agentforce 比得贵了 2 倍。如果你卖 AI agent 给 MS 栈重度用户，90 天内会被要求对标 Copilot Studio 价。",
+      "source_name": "Microsoft 365 Blog",
+      "source_url": "https://www.microsoft.com/en-us/microsoft-365/blog",
+      "tags": [
+        "pricing",
+        "product"
+      ],
+      "status": "published",
+      "created_at": "2026-04-20T08:00:00Z",
+      "published_at": "2026-04-20T08:00:00Z",
+      "metadata": {}
+    },
+    {
+      "id": "70b8803c-a098-4139-b661-6f32357d6ecb",
+      "date": "2026-04-20",
+      "section": "daily_brief",
+      "order_in_section": 6,
+      "title_en": "Replicate Acquires Truss to Own the Model-Deploy Layer",
+      "title_zh": "Replicate 收购 Truss，拿下模型部署层",
+      "content_en": "Replicate announced the acquisition of Truss (open-source model-serving library) on April 20 for an undisclosed amount. Truss founders Pankaj Gupta and Phil Howes will lead Replicate's enterprise deploy business. Industry read: Replicate is positioning to be the \"Vercel for open-source models\" as Hugging Face leans into training.",
+      "content_zh": "Replicate 于 4 月 20 日宣布收购 Truss（开源模型服务库），金额未披露。Truss 创始人 Pankaj Gupta 和 Phil Howes 将领导 Replicate 的企业部署业务。行业解读：当 Hugging Face 偏向训练，Replicate 在占位「开源模型的 Vercel」。",
+      "so_what_en": "Distribution consolidates: open-source model deploy is down to 2-3 credible players. If your ML infra strategy depended on a long tail of deploy vendors, now's the time to pick a horse.",
+      "so_what_zh": "分发在收敛：开源模型部署只剩 2-3 家可信玩家。如果你的 ML infra 策略押注的是长尾服务商，现在该选边站了。",
+      "source_name": "TechCrunch",
+      "source_url": "https://techcrunch.com/",
+      "tags": [
+        "industry",
+        "partnership"
+      ],
+      "status": "published",
+      "created_at": "2026-04-20T08:00:00Z",
+      "published_at": "2026-04-20T08:00:00Z",
+      "metadata": {}
+    }
+  ]
+}
