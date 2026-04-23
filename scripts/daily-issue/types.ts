@@ -47,7 +47,13 @@ export interface Candidate {
 
 export interface PipelineConfig {
   targetDate: string;
+  // Width of the fetch window (hours).
   fetchWindowHours: number;
+  // How many hours before `now` the window ENDS. The window is
+  // [now - bufferHours - windowHours, now - bufferHours]. Default 1h gives a
+  // buffer for late-publishing sources and keeps the window aligned with
+  // user-visible push time rather than raw cron-fire time.
+  fetchBufferHours: number;
   dedupWindowDays: number;
   sectionTargets: Record<ArticleSection, { min: number; max: number }>;
   dryRun: boolean;

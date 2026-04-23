@@ -48,8 +48,18 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           args=""
-          if [ -n "${{ inputs.date }}" ]; then args="$args --date ${{ inputs.date }}"; fi
+          TARGET_DATE="${{ inputs.date }}"
+          if [ -z "$TARGET_DATE" ]; then TARGET_DATE=$(date -u +%F); fi
+          args="$args --date $TARGET_DATE"
           if [ "${{ inputs.dry_run }}" = "true" ]; then args="$args --dry-run"; fi
+          # Auto-enable --rerun when the issue file already exists for this date.
+          # Without this, a second run on the same date would see its own prior
+          # output in history.json and dedup-filter its own candidates away,
+          # producing degenerate issues (e.g. empty growth_insight section).
+          if [ -f "src/data/issues/$TARGET_DATE.json" ]; then
+            echo "Issue already exists for $TARGET_DATE — adding --rerun"
+            args="$args --rerun"
+          fi
           npm run generate:daily -- $args
 
       - name: Commit if changed

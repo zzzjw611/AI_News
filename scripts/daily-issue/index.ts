@@ -18,12 +18,13 @@ import { assertPublishable, validateArticles } from './validate';
 import { writeIssue } from './write';
 import { log } from './log';
 
-function parseArgs(argv: string[]): { date?: string; dryRun: boolean } {
-  const out: { date?: string; dryRun: boolean } = { dryRun: false };
+function parseArgs(argv: string[]): { date?: string; dryRun: boolean; rerun: boolean } {
+  const out: { date?: string; dryRun: boolean; rerun: boolean } = { dryRun: false, rerun: false };
   for (let i = 0; i < argv.length; i += 1) {
     const a = argv[i];
     if (a === '--dry-run') out.dryRun = true;
     else if (a === '--date') out.date = argv[i + 1];
+    else if (a === '--rerun') out.rerun = true;
   }
   return out;
 }
@@ -36,7 +37,7 @@ const DEFAULT_TARGETS: Record<ArticleSection, { min: number; max: number }> = {
   daily_brief: { min: 6, max: 6 },
   growth_insight: { min: 0, max: 2 },
   launch_radar: { min: 1, max: 2 },
-  daily_case: { min: 1, max: 2 },
+  daily_case: { min: 1, max: 1 },
 };
 
 async function main(): Promise<void> {
@@ -47,6 +48,7 @@ async function main(): Promise<void> {
   const config: PipelineConfig = {
     targetDate: args.date ?? todayUTC(now),
     fetchWindowHours: 24,
+    fetchBufferHours: 1,
     dedupWindowDays: 7,
     sectionTargets: DEFAULT_TARGETS,
     dryRun: args.dryRun,
@@ -54,8 +56,13 @@ async function main(): Promise<void> {
   };
   log.info('pipeline.start', { config });
 
-  // 1. Fetch
-  const fetchOpts = { windowHours: config.fetchWindowHours, now };
+  // 1. Fetch — each fetcher filters by lower bound only, so we tell them to
+  // look back `windowHours + bufferHours` so the [now-25h, now-1h] window is
+  // fully covered before normalize trims both ends.
+  const fetchOpts = {
+    windowHours: config.fetchWindowHours + config.fetchBufferHours,
+    now,
+  };
   const fetched = await Promise.all([
     fetchHackerNews(fetchOpts).catch((e) => {
       log.error('source.hackernews.error', { err: String(e) });
@@ -97,13 +104,17 @@ async function main(): Promise<void> {
   const normalized = normalize(allCandidates, {
     now,
     windowHours: config.fetchWindowHours,
+    bufferHours: config.fetchBufferHours,
   });
 
-  // 3. Dedup against last N days
+  // 3. Dedup against last N days. --rerun excludes the target date itself so
+  // URLs / titles already published today can be re-picked when rewriting
+  // today's issue with updated prompts.
   const deduped = await dedup(normalized, {
     rootDir,
     now,
     windowDays: config.dedupWindowDays,
+    excludeDates: args.rerun ? [config.targetDate] : undefined,
   });
 
   // 4. Section select

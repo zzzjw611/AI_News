@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "generate:daily": "node --env-file-if-exists=.env.local --import tsx scripts/daily-issue/index.ts"
+    "generate:daily": "node --env-file-if-exists=.env.local --import tsx scripts/daily-issue/index.ts",
+    "regen:section": "node --env-file-if-exists=.env.local --import tsx scripts/daily-issue/regen-section.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.90.0",

@@ -33,6 +33,7 @@ async function loadRecentArticles(opts: {
   rootDir: string;
   now: Date;
   windowDays: number;
+  excludeDates?: string[];
 }): Promise<Article[]> {
   const indexPath = path.join(opts.rootDir, 'src/data/index.json');
   let dates: string[];
@@ -44,7 +45,8 @@ async function loadRecentArticles(opts: {
   }
   const cutoff = new Date(opts.now.getTime() - opts.windowDays * 24 * 3600 * 1000);
   const cutoffISO = cutoff.toISOString().slice(0, 10);
-  const recent = dates.filter((d) => d >= cutoffISO);
+  const exclude = new Set(opts.excludeDates ?? []);
+  const recent = dates.filter((d) => d >= cutoffISO && !exclude.has(d));
   const articles: Article[] = [];
   for (const d of recent) {
     try {
@@ -61,7 +63,7 @@ async function loadRecentArticles(opts: {
 
 export async function dedup(
   candidates: Candidate[],
-  opts: { rootDir: string; now: Date; windowDays: number },
+  opts: { rootDir: string; now: Date; windowDays: number; excludeDates?: string[] },
 ): Promise<Candidate[]> {
   const history = await loadRecentArticles(opts);
   const seenUrls = new Set(
