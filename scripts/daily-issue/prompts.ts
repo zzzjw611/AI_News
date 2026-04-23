@@ -130,44 +130,53 @@ If a term isn't explicitly listed above, default to: (1) Chinese translation if 
 # Section definitions
 
 - daily_brief: EXACTLY 6 cards of core industry news. Cover ≥ 4 different companies and ≥ 3 different event types (launch, funding, people, regulation, marketing play). Order by importance. This section is non-negotiable at 6 — if the strongest candidates don't fill 6, include the best of the borderline candidates rather than drop below 6.
-- growth_insight: 1–2 high-signal opinion pieces from named growth experts (X / LinkedIn / Substack / podcasts). "宁缺毋滥" — when no candidate is strong enough, output zero. Never pad.
-- launch_radar: EXACTLY 2 new products when both a heavyweight and an indie candidate exist. One MUST be "heavyweight" (shipping product from OpenAI / Anthropic / Google / Meta / Microsoft / Apple / xAI / Mistral / Perplexity / Cohere / 阿里通义 / DeepSeek / Kimi etc., OR major enterprise SaaS launching AI features). The other MUST be "small-and-beautiful" (indie tool, open-source project, or niche product that is clearly differentiated). Never return two indie/developer-tool picks — that signals the heavyweight bucket was empty, which is rare. If only one bucket has anything usable, return 1 card only. Each card must spell out (a) who will actually use this and (b) the marketer takeaway — distribution play, positioning shift, or competitive signal.
-- daily_case: 1–2 case-study cards. Each card is a structured mini teardown, not a news blurb. Structure + length caps below are MANDATORY.
+- growth_insight: 1-2 high-signal opinion pieces from named practitioners (X / LinkedIn / Substack / podcasts). Always emit at least 1 card — keep the section visible. When the pool is thin, pick the best available opinion even if the thesis is narrower than usual. Output 2 only when both candidates genuinely clear the bar.
+- launch_radar: ALWAYS exactly 2 cards. One heavyweight, one indie. Heavyweight is a lab / major-vendor product, feature, API, platform, or ecosystem update (OpenAI / Anthropic / Google / Meta / Microsoft / Apple / xAI / Mistral / Perplexity / Cohere / Nvidia / Hugging Face / 阿里通义 / DeepSeek / Kimi / ByteDance / Alibaba / Tencent / Baidu / etc., OR major enterprise SaaS launching an AI feature). Do not gate "heavyweight" on marquee-launch theatrics: an explainer post, SDK release, model tier, pricing change, or integration counts — if the first-party source is naming a shipped thing, it qualifies. Indie is a grass-roots shipping thing (Show HN / GitHub Trending / PH / X-launch / small SaaS). If the pool for one bucket is thin, widen the definition before dropping a card — returning 1 is a last resort, not a first response. Each card must spell out (a) who will actually use this and (b) the marketer takeaway (distribution play, positioning shift, or competitive signal).
+- daily_case: EXACTLY 1 case card per day. A tight 3-section marketing teardown (≈ 1.5-minute read). Keep the section visible every day.
 
-  Title style: narrative / curiosity-driven. Example: "Cursor 如何把一张 Landing Page 改成 5 亿美元估值" — a hook, not a headline. Avoid generic "Company X Did Y".
+  Editorial bar (SOFT): prefer candidates with at least 1 concrete anchor (number / named product / positioning / timeline / quote) and one strategic angle you can name and dissect. If the candidate is thin, STILL emit a card — narrower takeaways are better than an empty section. Only return 0 cards if the candidate is literally empty / pure speculation / single-sentence news with no content at all. Default to shipping.
 
-  # Length budget (HARD CAPS — shorter is always better)
-  - Background: 1 sentence, ≤ 60 Chinese chars / ≤ 35 English words. Core fact only — no recap sentence.
-  - Each Analysis point: ONE tight sentence, ≤ 35 Chinese chars / ≤ 20 English words AFTER the bold claim. If you want to say two things, pick the sharper one and cut the other.
-  - Each What-a-Marketer-Can-Do bullet is a BORROWABLE TACTIC addressed to a marketer at a DIFFERENT company (a third-party reader of this brief), NOT to the company featured in the case. The reader does not own the featured company's brand, budget, product, audience, or safety/compliance assets — so the bullet must be a pattern/framing/playbook they can apply to THEIR OWN product or campaign this week. Think: "what is the transferable move this case demonstrates, translated into an action the reader can take on their own landing page / copy / campaign / partnership / audience / distribution / retention / growth loop / A/B test?". Concrete good/bad pair: GOOD "Steal the 'universal <specific-risk>' framing for your own copy" — it names a portable pattern the reader can apply to any product. BAD "Add 'independently red-teamed' to your enterprise landing page" — it addresses the featured company (OpenAI) and assumes the reader has the same underlying asset. Other bad patterns to avoid: addressing the featured company's team ("target regulated-industry ICP with your safety milestones"), prescribing actions that require the reader to BE the featured company ("co-brand safety content with compliance KOLs"), or leaking engineering / finance / ops / stack-audit tasks. Range: messaging / copy / positioning / landing page / hero / CTA / campaign / channel / partnership / audience / ICP / distribution / retention / growth loop / A/B test. ≤ 25 Chinese chars / ≤ 15 English words. Bare imperative, no "should", no "consider", no "并"/"and". Verb + object, nothing else.
-  - so_what: single line, ≤ 40 Chinese chars / ≤ 22 English words.
-  - Total content_zh ≤ 260 Chinese chars (target ≈ 220). content_en proportional.
+  Title style: narrative / curiosity-driven hook that sells the story. Examples:
+    "Lovable 从 0 到 $100M ARR 的 18 个月:社区即渠道"
+    "Cursor 如何把一张 Landing Page 改成 5 亿美元估值"
+  Avoid generic "Company X Did Y" patterns.
 
-  Valid anchors for Background (need ONE, not all): a number, a date, a named product / feature, a positioning / pricing change, a structural decision, a company quote, a verified timeline, or any specific claim attributable to a source. Use whatever the candidate gives — don't demand hard numbers that aren't there. Skip the card ONLY if the candidate is pure speculation with no factual anchor at all.
+  Structure (MANDATORY — EXACTLY 3 sections, both content_en and content_zh):
 
-  Apply the global Anti-AI-tone rules (em-dash cap, banned phrasings EN + ZH, concrete-nouns direction). Extra-tight for Daily Case: replace abstract nouns ("生态布局", "战略意义", "新格局") with concrete ones ("15 家合作伙伴", "砍 30% 席位", "涨价 2x"). Cut hedging (could / might / 可能 / 或许) unless the source itself hedges.
+    ## 背景与数据 / ## Background & Numbers
+    2-3 sentences combining the subject, competitive context, and the key numbers inline. No separate metric bullets.
 
-  Self-check before emitting: if any sentence can be cut without losing meaning, cut it. If any bullet has more than one verb or a clause after a comma, shorten.
+    ## 问题拆解 / ## Breakdown
+    Exactly 3 numbered points, each **bold claim** + ONE tight sentence explaining the mechanism with a specific detail (number / named tactic / quote). Short sentence fragments beat full rhetorical sentences.
+    1. **<bold claim>** <one tight sentence, ≤ 45 zh chars / ≤ 25 en words>
+    2. **<bold claim>** <one tight sentence>
+    3. **<bold claim>** <one tight sentence>
 
-  content_en (markdown):
-    ## Background & Numbers
-    2–3 sentences. Concrete figures, dates, timeline. No adjectives.
+    ## 你可以怎么用 / ## How to Apply
+    Exactly 3 checkbox actions. Each is a BORROWABLE move a marketer at a DIFFERENT company can run on their OWN product this week.
+    - [ ] <bare verb + object, ≤ 22 zh chars / ≤ 14 en words>
+    - [ ] <bare action>
+    - [ ] <bare action>
+    Range: copy / positioning / landing page / hero / CTA / campaign / channel / partnership / audience / ICP / distribution / creator collab / retention loop / A-B test. Never engineering ("build X"), never finance ("prep ROI one-pager"), never stack-audit. If an action only makes sense if the reader IS the featured company, rewrite as the transferable form.
 
-    ## Analysis
-    1. **<bold one-line claim>** <1–2 sentence explanation grounded in the numbers>
-    2. **<bold one-line claim>** <1–2 sentence explanation>
-    3. **<bold one-line claim>** <1–2 sentence explanation>
+  # Length budget — 1.5-minute read, ABSOLUTE HARD CAP content_zh ≤ 500 chars.
+  Target: content_zh ≈ 450 chars. Writing close to the cap is a failure mode.
+  - Title: ≤ 22 Chinese chars / ≤ 14 English words
+  - 背景与数据: ≤ 120 Chinese chars / ≤ 70 English words (subject + context + key numbers combined)
+  - 问题拆解 (3 numbered points): ≤ 60 Chinese chars per point (incl. bold label) / ≤ 35 English words per point
+  - 你可以怎么用 (3 checkbox bullets): ≤ 22 Chinese chars per bullet / ≤ 14 English words per bullet
+  - so_what: ≤ 40 Chinese chars / ≤ 22 English words
 
-    ## What a Marketer Can Do
-    - <borrowable tactic or framing, addressed to a marketer at a DIFFERENT company, that they can apply to their OWN product / campaign this week — NEVER directed at the featured company's team>
-    - <borrowable tactic>
-    - <borrowable tactic>
+  ENFORCEMENT: before emitting, count content_zh characters. If > 500, DO NOT EMIT — silently rewrite tighter. Common trims: (1) adjectives, (2) sentences that restate the bold label, (3) parenthetical asides, (4) connectives like "因此 / 同时 / 换句话说", (5) clauses after a comma in checklist bullets.
+  Content_en tracks proportionally: target ≈ 250 words, hard cap 300 words.
 
-  content_zh (markdown, same structure, Chinese headings ## 背景与数据 / ## 分析 / ## Marketer 可以怎么做).
+  Apply the global Anti-AI-tone rules (em-dash cap, banned phrasings EN + ZH). Extra-tight for Daily Case: replace abstract nouns ("生态布局" / "战略意义" / "新格局") with concrete ones ("15 家合作伙伴" / "砍 30% 席位" / "涨价 2x"). Cut hedging (could / might / 可能 / 或许) unless the source itself hedges.
 
-  so_what_en / so_what_zh: one line — the single biggest takeaway if the reader remembers nothing else. Example: "Cursor 的进化：V1 给用户，V3 给买家。Landing page 还在对话个体用户，说明你已经长大超出它了。"
+  Ground EVERY claim. A metric bullet requires a number that exists in the source. A play section requires a tactic the source explicitly describes. If you feel the urge to smooth over a gap with generic language, stop — that is the signal to skip the card.
 
-  Every claim under ## Analysis must tie back to a specific number / quote / event in ## Background & Numbers. Every bullet under ## What a Marketer Can Do must pass TWO tests: (1) it is a marketing-side move (copy / positioning / landing page / campaign / channel / partnership / audience / distribution / retention / loop / A/B test) — NOT engineering, finance, ops, or stack-audit; (2) it is addressed to a marketer at ANOTHER company reading this brief — they can execute it on their OWN product without being the featured company. If a bullet only makes sense if the reader works at the featured company (e.g., "promote our safety milestones", "add red-team badge to our landing page"), rewrite it as the transferable pattern ("reframe your internal QA as public trust content", "steal the 'universal <X>' specificity trick for your hero copy"). Skip cases where the source doesn't give you enough data to populate Background — return fewer cards rather than pad.
+  Every bullet under ## 本周动作清单 / ## This Week's Checklist must pass TWO tests: (1) it is a marketing-side move (see list above); (2) it is addressed to a marketer at ANOTHER company reading this brief — they can execute it on their OWN product without being the featured company. GOOD: "把创始人个人账号当成官方第一广告位运营". BAD: "把 Lovable Weekly Metrics 发成每周推文"(只有 Lovable 团队能做).
+
+  so_what_en / so_what_zh: one line — the single biggest transferable insight if the reader remembers nothing else. Examples: "在 AI 可无限生成内容的年代,真实运营数据是最稀缺的品牌信号." / "渠道越深越好 — 一个满分渠道压倒三个 60 分渠道."
 
 # Output contract
 
@@ -181,7 +190,17 @@ Respond with a single JSON object:
       "content_zh": string,
       "so_what_en": string,
       "so_what_zh": string,
-      "tags": string[],   // 1–4 short tags in English, lowercase, hyphen-separated, e.g. "product-launch", "open-source", "funding"
+      "tags": string[],   // 2-4 items. Picked from a FIXED POOL by section:
+      //   daily_brief / growth_insight / launch_radar (English kebab-case slugs):
+      //     launch / funding / acquisition / partnership / regulation / security /
+      //     people / infrastructure / research / pricing / open-source / enterprise /
+      //     consumer / agent / developer-tool / indie
+      //   daily_case (Chinese slugs):
+      //     舆论 / 品宣 / 用户增长 / 发布策略 / 品牌信任 / 社区运营 / 销售转化 / 生态合作
+      // NEVER emit company names (openai / anthropic / google), product names
+      // (gpt-5 / claude / tpu), geographic tags (china / us), generic nouns
+      // (llm / safety / opinion / workflow / llm-seo), or variants not in the
+      // exact pool above. If no pool tag fits cleanly, pick the closest 2.
       "source_index": number  // 0-based index into the candidates array that this article is primarily based on
     }
   ]
@@ -200,13 +219,13 @@ Your output is parsed with JSON.parse; a single unescaped character breaks the w
 
 const SECTION_BRIEF: Record<ArticleSection, string> = {
   daily_brief:
-    'Produce EXACTLY {max} Daily Brief cards — this section is fixed at 6. Maximize company and event-type diversity. If the top candidates don\'t fill 6, include borderline ones rather than return fewer.',
+    'Produce EXACTLY {max} Daily Brief cards — this section is fixed at 6. Maximize company and event-type diversity. If the top candidates don\'t fill 6, include borderline ones rather than return fewer. Tags: pick 2-4 per card from the News pool ONLY (launch / funding / acquisition / partnership / regulation / security / people / infrastructure / research / pricing / open-source / enterprise / consumer / agent / developer-tool / indie). Do NOT emit company names, product names, geographic tags, or words outside the pool.',
   growth_insight:
-    'Produce up to {max} Growth Insight cards (minimum {min}, zero is OK — "宁缺毋滥"). Only pick opinions from named practitioners with a clear thesis. Skip generic news. Returning fewer than {max} is encouraged when quality is borderline.',
+    'Produce up to {max} Growth Insight cards, MIN {min}. Always emit at least 1 card so the section stays visible; emit 2 only when both candidates genuinely clear the bar. Prefer opinions from named practitioners with a clear thesis; when the pool is thin, still emit the best available even if the thesis is narrower. Tags: pick 2-4 per card from the News pool ONLY (same list as daily_brief). No company names, no generic "opinion" or "llm" tags.',
   launch_radar:
-    'Produce up to {max} Launch Radar cards (minimum {min}). The 2 cards MUST split: one heavyweight (big-lab / big-tech launch), one indie (Show HN / GitHub Trending / niche). Candidates below are pre-filtered so both buckets should be present. If the heavyweight bucket genuinely has nothing worth publishing (not just less-flashy), return 1 indie card only — never return 2 indie picks. Call out marketer takeaway on every card: who uses it + what distribution or positioning signal it carries.',
+    'ALWAYS produce exactly {max} Launch Radar cards (min {min}). The 2 cards split: one heavyweight (lab / major-vendor first-party post about any shipped thing — product, feature, SDK, model tier, pricing, integration), one indie (Show HN / GitHub Trending / niche SaaS / PH). Widen the heavyweight definition before dropping a card — returning fewer than 2 is last-resort only. Every card states (a) who uses this + (b) marketer takeaway (distribution / positioning / competitive signal). Tags: pick 2-4 per card from the News pool ONLY (same list as daily_brief). No company names.',
   daily_case:
-    'Produce up to {max} Daily Case cards (minimum {min}). MANDATORY structure for content_en and content_zh: "## Background & Numbers" / "## 背景与数据" (1 sentence, ≤ 60 zh chars, one concrete anchor: number / date / named product / positioning change / structural decision), "## Analysis" / "## 分析" (exactly 3 numbered points, each **bold claim** + ONE sentence ≤ 35 zh chars), "## What a Marketer Can Do" / "## Marketer 可以怎么做" (exactly 3 bare imperative bullets ≤ 25 zh chars). CRITICAL: bullets are BORROWABLE TACTICS addressed to a marketer at ANOTHER company reading this brief, NOT instructions to the featured company\'s own team. The reader does not own the featured company\'s brand/assets/audience. Bullets must be transferable patterns they can apply to their OWN product this week (messaging / copy / positioning / landing page / campaign / channel / partnership / audience / distribution / retention). If a bullet only makes sense if the reader IS the featured company, rewrite it as the transferable pattern. Never emit engineering builds, CFO/finance asks, or stack-audits. No "should"/"consider"/"并"/compound clauses. Total content_zh ≤ 260 zh chars (target 220). Title narrative / curiosity-driven. so_what = single line ≤ 40 zh chars. Apply global Anti-AI-tone rules (em-dash cap, banned phrasings). If the candidate has even one concrete anchor (product name, quote, structural decision, timing), USE it. Skip only if the candidate is pure speculation.',
+    'Produce EXACTLY {max} Daily Case card, MIN {min}. Default to shipping a card every day — keep the section visible. SOFT BAR: prefer candidates with at least 1 concrete anchor (number / named product / positioning / timeline / quote) and one strategic angle you can name. If the candidate is thin, STILL emit a card with narrower takeaways rather than skip. When a card IS emitted, follow the tight 3-section structure in SYSTEM_PROMPT: ## 背景与数据 (2-3 sentences: subject + context + numbers inline) → ## 问题拆解 (exactly 3 numbered points, each **bold claim** + ONE tight sentence ≤ 45 zh chars) → ## 你可以怎么用 (exactly 3 "[ ]" checkbox actions, each ≤ 22 zh chars bare verb+object, BORROWABLE for a marketer at a DIFFERENT company). Checklist actions scoped to marketing (copy / positioning / landing page / campaign / channel / partnership / audience / distribution / retention / creator collab / A-B test), NEVER engineering or finance. Ground every claim in a source-backed fact. Apply global Anti-AI-tone rules (em-dash cap, banned phrasings). HARD CAP content_zh ≤ 500 chars (target 450, 1.5-minute read). Run a character count before emitting. Title: narrative hook, ≤ 22 zh chars. so_what: single transferable insight, ≤ 40 zh chars. TAGS: 2-4 items from the fixed Chinese pool only — 舆论 / 品宣 / 用户增长 / 发布策略 / 品牌信任 / 社区运营 / 销售转化 / 生态合作. Never emit English tags for this section.',
 };
 
 export function buildUserPrompt(

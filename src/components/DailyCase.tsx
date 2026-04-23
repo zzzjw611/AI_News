@@ -4,6 +4,8 @@ import type { Article } from '@/lib/types';
 import { pickLocalized, useLanguage } from '@/lib/LanguageContext';
 import { caseMarkdownToHtml } from '@/lib/markdown';
 import { articleKey } from '@/lib/articleKey';
+import { tagPillColor } from '@/lib/tagColor';
+import { localizeTag } from '@/lib/tagPool';
 import { SectionHead } from '@/components/SectionHead';
 import { SourceLink } from '@/components/SourceLink';
 import { EmptyWindow } from '@/components/EmptyWindow';
@@ -66,6 +68,17 @@ export function DailyCase({ articles }: DailyCaseProps) {
                     {language === 'zh' ? '一句话要点' : 'One-Line Takeaway'}
                   </div>
                   <div className="ctx-text">{soWhat}</div>
+                </div>
+              ) : null}
+              {article.tags.length > 0 ? (
+                <div className="cf">
+                  <div className="tags">
+                    {article.tags.map((tag) => (
+                      <span key={tag} className={`tag ${tagPillColor(tag)}`}>
+                        {localizeTag(tag, language)}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               ) : null}
             </article>

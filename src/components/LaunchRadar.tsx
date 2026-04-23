@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import type { Article } from '@/lib/types';
 import { pickLocalized, useLanguage } from '@/lib/LanguageContext';
 import { tagPillColor } from '@/lib/tagColor';
+import { localizeTag } from '@/lib/tagPool';
 import { articleKey } from '@/lib/articleKey';
 import { SectionHead } from '@/components/SectionHead';
 import { SourceLink } from '@/components/SourceLink';
@@ -127,7 +128,7 @@ export function LaunchRadar({ articles }: LaunchRadarProps) {
                     <div className="tags">
                       {article.tags.map((tag) => (
                         <span key={tag} className={`tag ${tagPillColor(tag)}`}>
-                          {tag}
+                          {localizeTag(tag, language)}
                         </span>
                       ))}
                     </div>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import type { Article } from '@/lib/types';
 import { pickLocalized, useLanguage } from '@/lib/LanguageContext';
 import { tagDotColor, tagPillColor } from '@/lib/tagColor';
+import { localizeTag } from '@/lib/tagPool';
 import { articleKey } from '@/lib/articleKey';
 import { SectionHead } from '@/components/SectionHead';
 import { SourceLink } from '@/components/SourceLink';
@@ -79,7 +80,7 @@ export function DailyBrief({ articles }: DailyBriefProps) {
                 {article.so_what_en ? (
                   <div className="ctx">
                     <div className="ctx-label">
-                      {language === 'zh' ? '对 Marketer 的意义' : 'So What for Marketers'}
+                      {language === 'zh' ? '市场洞察' : 'Market Insight'}
                     </div>
                     <div className="ctx-text">{soWhat}</div>
                   </div>
@@ -88,7 +89,7 @@ export function DailyBrief({ articles }: DailyBriefProps) {
                   <div className="tags">
                     {article.tags.map((tag) => (
                       <span key={tag} className={`tag ${tagPillColor(tag)}`}>
-                        {tag}
+                        {localizeTag(tag, language)}
                       </span>
                     ))}
                   </div>

@@ -343,11 +343,10 @@ button {
 .chip {
   display: inline-flex;
   align-items: center;
-  font-family: 'Space Mono', monospace;
+  /* Match body font family so section heads share the same type system as titles + content. */
   font-size: 14px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.02em;
   padding: 6px 10px;
   border-radius: 4px;
   border: 1px solid;
@@ -508,12 +507,10 @@ button {
 }
 
 .ctx-label {
-  font-family: 'Space Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  text-transform: uppercase;
   color: var(--green);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.02em;
   margin-bottom: 4px;
 }
 
@@ -615,11 +612,10 @@ button {
   text-align: center;
 }
 .empty-window-heading {
-  font-family: 'Space Mono', monospace;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
   color: var(--text-1);
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   margin-bottom: 12px;
 }
 .empty-window-text {
@@ -631,12 +627,11 @@ button {
 }
 
 .gi-author {
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--green);
   margin-bottom: 6px;
-  letter-spacing: 0.03em;
+  letter-spacing: 0;
 }
 
 .gi-inspire {
@@ -703,12 +698,11 @@ button {
 
 .lr-block { display: flex; flex-direction: column; gap: 3px; }
 .lr-label {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  font-weight: 500;
+  /* Match the body font family; keep color and weight as the label cue. */
+  font-size: 13px;
+  font-weight: 600;
   color: var(--green);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 .lr-text {
   font-size: 16px;
@@ -848,6 +842,23 @@ button {
   transition: color 0.15s ease;
 }
 .je-foot-sub:hover { color: var(--text-1); }
+
+.je-foot-contact {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid var(--border-2);
+  border-radius: 4px;
+  color: var(--text-2);
+  background: transparent;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.je-foot-contact:hover {
+  color: var(--text-1);
+  border-color: var(--text-2);
+  background: var(--surface-2);
+}
 
 /* ---------- Utility ---------- */
 

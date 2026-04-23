@@ -36,8 +36,8 @@ const SECTION_ORDER: ArticleSection[] = [
 
 const DEFAULT_TARGETS: Record<ArticleSection, { min: number; max: number }> = {
   daily_brief: { min: 6, max: 6 },
-  growth_insight: { min: 0, max: 2 },
-  launch_radar: { min: 1, max: 2 },
+  growth_insight: { min: 1, max: 2 },
+  launch_radar: { min: 2, max: 2 },
   daily_case: { min: 1, max: 1 },
 };
 
@@ -52,24 +52,27 @@ function parseArgs(argv: string[]): {
   section: ArticleSection;
   dryRun: boolean;
   forceSourceUrl?: string;
+  loosenGate: boolean;
 } {
   let date: string | undefined;
   let section: string | undefined;
   let dryRun = false;
   let forceSourceUrl: string | undefined;
+  let loosenGate = false;
   for (let i = 0; i < argv.length; i += 1) {
     const a = argv[i];
     if (a === '--date') date = argv[i + 1];
     else if (a === '--section') section = argv[i + 1];
     else if (a === '--dry-run') dryRun = true;
     else if (a === '--force-source-url') forceSourceUrl = argv[i + 1];
+    else if (a === '--loosen-gate') loosenGate = true;
   }
   if (!date) throw new Error('--date YYYY-MM-DD is required');
   if (!section) throw new Error('--section <daily_brief|growth_insight|launch_radar|daily_case> is required');
   if (!VALID_SECTIONS.includes(section as ArticleSection)) {
     throw new Error(`invalid section: ${section}`);
   }
-  return { date, section: section as ArticleSection, dryRun, forceSourceUrl };
+  return { date, section: section as ArticleSection, dryRun, forceSourceUrl, loosenGate };
 }
 
 function stripTrailingSlash(url: string): string {
@@ -77,10 +80,10 @@ function stripTrailingSlash(url: string): string {
 }
 
 async function main(): Promise<void> {
-  const { date, section, dryRun, forceSourceUrl } = parseArgs(process.argv.slice(2));
+  const { date, section, dryRun, forceSourceUrl, loosenGate } = parseArgs(process.argv.slice(2));
   const now = new Date();
   const rootDir = process.cwd();
-  log.info('regen.start', { date, section, dryRun, forceSourceUrl: forceSourceUrl ?? null });
+  log.info('regen.start', { date, section, dryRun, forceSourceUrl: forceSourceUrl ?? null, loosenGate });
 
   const issuePath = path.join(rootDir, 'src/data/issues', `${date}.json`);
   let existing: IssueFile;
@@ -207,6 +210,9 @@ async function main(): Promise<void> {
   if (!apiKey) throw new Error('ANTHROPIC_API_KEY is required');
   const client = new Anthropic({ apiKey });
 
+  const extraNote = loosenGate
+    ? 'TEST-RUN OVERRIDE: Relax the editorial hard gate for this run — emit a card even if the source has just 1-2 quantified facts or 1-2 plays. BUT length discipline is NOT loosened: content_zh must stay ≤ 900 chars (target 750). Anti-AI-tone rules, borrowable-tactic bullet rule, and all per-section length caps remain strict. Skip invented facts. This is a layout-rehearsal run.'
+    : undefined;
   const newArticles = await generateSection({
     client,
     model: 'claude-sonnet-4-6',
@@ -214,6 +220,7 @@ async function main(): Promise<void> {
     targets: genTargets,
     candidates: pool,
     date,
+    extraNote,
   });
   validateArticles(newArticles);
 

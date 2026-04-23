@@ -8,9 +8,7 @@ export function Footer() {
   return (
     <footer className="je-foot">
       <div className="je-foot-l">
-        {language === 'zh'
-          ? 'AI 营销日报 — 永久免费，无广告，无付费墙。'
-          : 'AI Marketer Daily — Free forever. No ads. No paywall.'}
+        {language === 'zh' ? 'AI 营销日报 - JE Labs' : 'AI Marketer Daily - JE Labs'}
       </div>
       <div className="je-foot-r">
         {botUrl && (
@@ -23,7 +21,14 @@ export function Footer() {
             {language === 'zh' ? 'Telegram 订阅 →' : 'Subscribe on Telegram →'}
           </a>
         )}
-        <span>{language === 'zh' ? '由 JE Labs 出品' : 'Powered by JE Labs'}</span>
+        <a
+          href="https://je-kohl.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="je-foot-contact"
+        >
+          {language === 'zh' ? '联系 JE Labs' : 'Contact JE Labs'}
+        </a>
       </div>
     </footer>
   );

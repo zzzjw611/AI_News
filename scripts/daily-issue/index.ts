@@ -35,8 +35,8 @@ function todayUTC(now: Date): string {
 
 const DEFAULT_TARGETS: Record<ArticleSection, { min: number; max: number }> = {
   daily_brief: { min: 6, max: 6 },
-  growth_insight: { min: 0, max: 2 },
-  launch_radar: { min: 1, max: 2 },
+  growth_insight: { min: 1, max: 2 },
+  launch_radar: { min: 2, max: 2 },
   daily_case: { min: 1, max: 1 },
 };
 
