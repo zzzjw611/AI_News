@@ -52,6 +52,7 @@ export function DailyBrief({ articles }: DailyBriefProps) {
         emoji="📅"
         label={language === 'zh' ? 'DAILY BRIEF · 今日要点' : 'DAILY BRIEF'}
         color="green"
+        count={articles.length}
       />
       <ol className="tl">
         {articles.map((article, idx) => {

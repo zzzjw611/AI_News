@@ -85,6 +85,7 @@ export function LaunchRadar({ articles }: LaunchRadarProps) {
         emoji="🚀"
         label={language === 'zh' ? 'LAUNCH RADAR · 新品雷达' : 'LAUNCH RADAR'}
         color="pink"
+        count={articles.length}
       />
       <div className="lr-grid">
         {articles.map((article, idx) => {

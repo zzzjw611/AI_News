@@ -39,6 +39,7 @@ export function GrowthInsight({ articles }: GrowthInsightProps) {
         emoji="💡"
         label={language === 'zh' ? '增长洞察' : 'GROWTH INSIGHT'}
         color="blue"
+        count={articles.length}
       />
       <div className="gi-stack">
         {articles.map((article) => {

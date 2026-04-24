@@ -41,6 +41,7 @@ export function DailyCase({ articles }: DailyCaseProps) {
         emoji="📚"
         label={language === 'zh' ? 'DAILY CASE · 每日案例' : 'DAILY CASE'}
         color="orange"
+        count={articles.length}
       />
       <div className="gi-stack">
         {articles.map((article) => {

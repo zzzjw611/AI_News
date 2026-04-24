@@ -5,13 +5,20 @@ import type { Article, ArticleSection } from '../../src/lib/types';
 import { SYSTEM_PROMPT, buildUserPrompt } from './prompts';
 import { log } from './log';
 
+// so_what is nullable: awareness-only stories set it to null. The frontend
+// already renders the takeaway box conditionally, so a null just suppresses
+// the "市场洞察 / Market Insight" block on that card.
+const soWhatField = z
+  .union([z.string(), z.null()])
+  .transform((v) => (v && v.trim().length > 0 ? v.trim() : null));
+
 const GeneratedArticleSchema = z.object({
   title_en: z.string().min(1),
   title_zh: z.string().min(1),
   content_en: z.string().min(1),
   content_zh: z.string().min(1),
-  so_what_en: z.string().min(1),
-  so_what_zh: z.string().min(1),
+  so_what_en: soWhatField,
+  so_what_zh: soWhatField,
   tags: z.array(z.string().min(1)).min(1).max(4),
   source_index: z.number().int().nonnegative(),
 });
@@ -155,7 +162,7 @@ export async function generateSection(opts: {
     const hits: Array<{ idx: number; field: 'title_en' | 'content_en' | 'so_what_en' }> = [];
     if (CJK.test(a.title_en)) hits.push({ idx: i, field: 'title_en' });
     if (CJK.test(a.content_en)) hits.push({ idx: i, field: 'content_en' });
-    if (CJK.test(a.so_what_en)) hits.push({ idx: i, field: 'so_what_en' });
+    if (a.so_what_en && CJK.test(a.so_what_en)) hits.push({ idx: i, field: 'so_what_en' });
     return hits;
   });
   if (leaky.length > 0) {
@@ -183,7 +190,10 @@ export async function generateSection(opts: {
       // Verify the fix landed. If still leaky, log and keep the best we have
       // rather than loop indefinitely.
       const stillLeaky = fixParsed.articles.some(
-        (a) => CJK.test(a.title_en) || CJK.test(a.content_en) || CJK.test(a.so_what_en),
+        (a) =>
+          CJK.test(a.title_en) ||
+          CJK.test(a.content_en) ||
+          (a.so_what_en ? CJK.test(a.so_what_en) : false),
       );
       if (stillLeaky) {
         log.error('generate.bilingual.cjk_in_en.still_leaky', { section });

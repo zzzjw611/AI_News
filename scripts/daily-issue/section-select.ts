@@ -13,6 +13,7 @@ const FILL_ORDER: ArticleSection[] = [
 const SECTION_GROUPS: Record<ArticleSection, SourceGroup[]> = {
   daily_brief: [
     'brief_first_party',
+    'brief_marketer',
     'brief_media',
     'brief_community',
     'brief_regulation',
@@ -44,6 +45,7 @@ const SECTION_GROUPS: Record<ArticleSection, SourceGroup[]> = {
     'case_data_evidence',
     'case_user_requests',
     'brief_first_party',
+    'brief_marketer',
     'brief_media',
     'brief_community',
   ],
@@ -56,7 +58,7 @@ const SECTION_GROUPS: Record<ArticleSection, SourceGroup[]> = {
 type GroupSet = ReadonlySet<SourceGroup>;
 const COMMUNITY: GroupSet = new Set<SourceGroup>(['brief_community', 'case_community_reaction']);
 const FIRST_PARTY: GroupSet = new Set<SourceGroup>(['brief_first_party', 'launch_changelogs', 'case_hot_companies']);
-const MEDIA: GroupSet = new Set<SourceGroup>(['brief_media', 'case_deep_media']);
+const MEDIA: GroupSet = new Set<SourceGroup>(['brief_media', 'brief_marketer', 'case_deep_media']);
 // Launch Radar "heavyweight" = lab / big-tech announcing products.
 // "Indie" = everything grass-roots (Show HN, GitHub Trending, PH, X launches).
 const LR_HEAVY: GroupSet = new Set<SourceGroup>([
@@ -116,6 +118,11 @@ const SECTION_MIX: Record<ArticleSection, MixRule> = {
  */
 function baseScore(c: Candidate): number {
   if (FIRST_PARTY.has(c.source_group)) return 220;
+  // Marketer-focused AI media (Digiday / Adweek / Marketing AI Institute / Marketing Brew / Marketing Dive)
+  // rank above general media — AI × marketing intersection is a first-class
+  // priority for this brief, and these sources already pre-filter for
+  // marketing relevance.
+  if (c.source_group === 'brief_marketer') return 200;
   if (MEDIA.has(c.source_group)) return 170;
   if (c.source_group.startsWith('launch_')) return 160;
   // Growth Insight values thesis density. Long-form (Substack, podcasts) >
@@ -132,6 +139,50 @@ function baseScore(c: Candidate): number {
   return 100;
 }
 
+// Marketing × AI bias. Push candidates that live at the intersection of
+// AI and marketing / growth / distribution above pure-technical AI news.
+// Matches title + raw_text; substring for ZH (no word-boundary notion),
+// word-boundary-ish for EN. First hit +35, each extra unique hit +8, cap +60.
+const EN_MARKETING_RE =
+  /\b(marketing|advertising|advertis(ing|ement)|ads?|campaign|branding|brand (voice|guideline|safety|play|deal)|copywriting|copy(text)?|landing page|hero section|cta|ctr|cpc|cpm|cpa|cpl|roas|aov|ltv|cac|dau|mau|growth (loop|hack|marketer)|conversion|retention|funnel|seo|sem|geo|aeo|content marketing|newsletter|influencer|creator economy|creator partner|kol|go-to-market|gtm|icp|positioning|ad spend|paid ads|paid social|attribution|distribution|ugc|mcn|crm|lifecycle)\b/i;
+const ZH_MARKETING_TOKENS = [
+  '营销', '广告', '推广', '品牌力', '品牌定位', '品牌叙事', '投放', '增长', '转化',
+  '分发', '内容营销', '种草', '电商', '社媒', '私域', '公域', '裂变', 'KOL', 'MCN',
+  '获客', '拉新', '留存', '复购', '用户增长', '社群', '直播带货', '内容创作者',
+];
+
+function marketingBoost(c: Candidate): number {
+  // Title is far more reliable than raw_text for aggregated sources
+  // (a 36kr "8点1氪" digest mentions "广告" in passing but is not a
+  // marketing story). Weight title hits 2×, body hits 1×.
+  let titleHits = 0;
+  if (EN_MARKETING_RE.test(c.title)) titleHits += 1;
+  for (const tok of ZH_MARKETING_TOKENS) {
+    if (c.title.includes(tok)) { titleHits += 1; break; }
+  }
+  let bodyHits = 0;
+  if (c.raw_text) {
+    if (EN_MARKETING_RE.test(c.raw_text)) bodyHits += 1;
+    for (const tok of ZH_MARKETING_TOKENS) {
+      if (c.raw_text.includes(tok)) { bodyHits += 1; break; }
+    }
+  }
+  const effective = titleHits * 2 + bodyHits;
+  if (effective === 0) return 0;
+  return Math.min(60, 20 + effective * 12);
+}
+
+// Aggregated-news-digest penalty. Titles like "8点1氪 丨 华谊兄弟... 普华永道...
+// 伊朗..." pack multiple unrelated stories into one feed item, so they
+// trigger marketing / company / type detectors incorrectly and contribute
+// no cohesive card. Big negative score so they drop out of top picks.
+const ROUNDUP_RE =
+  /(8\s*点\s*1\s*氪|晚报|早报|今日精选|头条早报|今日头条|快讯[丨|｜:：]|周报[:：]|日报[:：]|daily digest|weekly (digest|roundup)|news roundup|morning briefing|evening briefing)/i;
+
+function roundupPenalty(c: Candidate): number {
+  return ROUNDUP_RE.test(c.title) ? -120 : 0;
+}
+
 function score(c: Candidate): number {
   let s = baseScore(c);
   // log-dampened engagement so a 2000-upvote meme doesn't outrank OpenAI's blog
@@ -143,6 +194,13 @@ function score(c: Candidate): number {
   // recency: up to +20 for freshest, 0 for 24h old
   const ageHours = Math.max(0, (Date.now() - Date.parse(c.published_at)) / 3600000);
   s += Math.max(0, 20 - ageHours * 0.8);
+  // AI × marketing intersection bias: +20 to +60 when the candidate
+  // mentions marketing / growth / brand / distribution concepts in the
+  // title. Title hits weighted 2× vs body hits to avoid false positives
+  // from aggregated feeds.
+  s += marketingBoost(c);
+  // Aggregated-digest titles get punished into irrelevance.
+  s += roundupPenalty(c);
   return s;
 }
 

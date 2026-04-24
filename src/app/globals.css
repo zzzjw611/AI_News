@@ -109,6 +109,20 @@ button {
   min-width: 0;
 }
 
+.nav-left-stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.nav-slogan {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
 .nav-brand {
   font-family: inherit;
   font-weight: 700;
@@ -332,6 +346,13 @@ button {
 .sec-hd-emoji {
   font-size: 14px;
   line-height: 1;
+}
+
+.sec-hd-count {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
 }
 
 .sec-hd-rule {

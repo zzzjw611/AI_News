@@ -34,6 +34,14 @@ export const RSS_FEEDS: RSSFeed[] = [
   { name: '机器之心', url: 'https://www.jiqizhixin.com/rss', group: 'brief_media', lang: 'zh' },
   { name: '36氪', url: 'https://36kr.com/feed', group: 'brief_media', lang: 'zh' },
 
+  // Marketer-focused AI media (brief_marketer). Higher base-score bucket
+  // than general brief_media so AI × marketing intersection stories rise
+  // above pure-tech items. Non-AI content is dropped by AI_RX below.
+  { name: 'Adweek AI', url: 'https://www.adweek.com/category/artificial-intelligence/feed/', group: 'brief_marketer', lang: 'en' },
+  { name: 'Marketing AI Institute', url: 'https://www.marketingaiinstitute.com/blog/rss.xml', group: 'brief_marketer', lang: 'en' },
+  { name: 'Digiday', url: 'https://digiday.com/feed/', group: 'brief_marketer', lang: 'en' },
+  { name: 'Marketing Dive', url: 'https://www.marketingdive.com/feeds/news/', group: 'brief_marketer', lang: 'en' },
+
   // Substack / newsletter whitelist (growth_substack)
   // Opinion-driven marketing, growth, and AI-product-building voices.
   // Every.to dropped — paywalled, no public RSS.

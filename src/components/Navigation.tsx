@@ -19,8 +19,11 @@ export function Navigation({
 }: NavigationProps) {
   const { language } = useLanguage();
   const date = displayDate ?? format(new Date(), 'yyyy-MM-dd');
-  const brand = language === 'zh' ? 'AI 营销日报' : 'AI Marketer Daily';
-  const subtitle = language === 'zh' ? '情报简报' : 'Intelligence Brief';
+  const brand = language === 'zh' ? 'WeLike · AI 营销日报' : 'WeLike · AI Marketer Daily';
+  const slogan =
+    language === 'zh'
+      ? '8 分钟 AI 营销人每日简报'
+      : '8min Daily Briefing for AI Marketers';
   const archiveLabel = onArchivePage
     ? language === 'zh'
       ? '← 返回今日'
@@ -30,12 +33,11 @@ export function Navigation({
       : 'Archive →';
   return (
     <header className="je-nav">
-      <div className="nav-left">
+      <div className="nav-left nav-left-stacked">
         <Link href="/" className="nav-brand">
           {brand}
         </Link>
-        <span className="nav-sep">·</span>
-        <span className="nav-sub">{subtitle}</span>
+        <span className="nav-slogan">{slogan}</span>
       </div>
       <div className="nav-right">
         <LanguageToggle />

@@ -5,6 +5,7 @@ export type SourceGroup =
   | 'brief_first_party'
   | 'brief_community'
   | 'brief_media'
+  | 'brief_marketer'
   | 'brief_regulation'
   | 'brief_data'
   // Growth Insight
