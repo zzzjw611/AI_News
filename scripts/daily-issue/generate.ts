@@ -37,6 +37,60 @@ function extractJson(text: string): string {
   throw new Error('No JSON object in response');
 }
 
+/**
+ * Auto-repair the most common LLM JSON failure: unescaped straight double
+ * quotes inside a string value. E.g. `"title_zh":"小红书押注"活人感"策略"`
+ * — Claude mirrors the Chinese press convention of quoting phrases and
+ * forgets to escape. We walk the text as a minimal JSON-string-aware
+ * scanner: when we see a `"` inside a string whose next non-whitespace
+ * char is NOT a JSON structural token (`,` `:` `}` `]`) or EOF, we
+ * replace it with `'`.
+ *
+ * Returns the repaired text, or null if nothing to repair.
+ */
+function repairInnerQuotes(raw: string): string | null {
+  let out = '';
+  let inString = false;
+  let escapeNext = false;
+  let repairs = 0;
+  for (let i = 0; i < raw.length; i += 1) {
+    const ch = raw[i];
+    if (escapeNext) {
+      out += ch;
+      escapeNext = false;
+      continue;
+    }
+    if (ch === '\\') {
+      out += ch;
+      escapeNext = true;
+      continue;
+    }
+    if (ch === '"') {
+      if (!inString) {
+        inString = true;
+        out += ch;
+        continue;
+      }
+      // Currently inside a string. Is this the closing quote?
+      let j = i + 1;
+      while (j < raw.length && /\s/.test(raw[j])) j += 1;
+      const next = raw[j];
+      if (next === undefined || next === ',' || next === ':' || next === '}' || next === ']') {
+        // Real closing quote.
+        inString = false;
+        out += ch;
+      } else {
+        // Mid-string straight quote — swap for apostrophe.
+        out += "'";
+        repairs += 1;
+      }
+      continue;
+    }
+    out += ch;
+  }
+  return repairs > 0 ? out : null;
+}
+
 export async function generateSection(opts: {
   client: Anthropic;
   model: string;
@@ -86,28 +140,48 @@ export async function generateSection(opts: {
     throw new Error(`Claude response for ${section} hit max_tokens — bump limit or shrink prompt.`);
   }
 
-  let parsed: z.infer<typeof ResponseSchema>;
+  let parsed: z.infer<typeof ResponseSchema> | null = null;
   let extracted = extractJson(text);
   const firstAttemptTextLen = text.length;
+  let firstParseErr: unknown = null;
+
+  // Step 1: straight parse.
   try {
     parsed = ResponseSchema.parse(JSON.parse(extracted));
-  } catch (firstErr) {
-    log.warn('generate.parse.retry', {
-      section,
-      err: String(firstErr),
-    });
-    // Self-heal attempt. The old prompt was too gentle — when the first
-    // attempt's JSON broke on a long structured output (e.g. daily_case
-    // with nested bold labels), Claude sometimes returned an empty
-    // articles array on retry as a shortcut. Be explicit: content was
-    // fine, only the JSON wrapper broke, and DO NOT drop articles.
+  } catch (err) {
+    firstParseErr = err;
+  }
+
+  // Step 2: auto-repair the most common LLM failure — unescaped straight
+  // double quotes inside a string value (Chinese 双引号 convention leaking).
+  // If the repair changes anything AND the repaired text parses, skip the
+  // LLM retry entirely.
+  if (!parsed) {
+    const repaired = repairInnerQuotes(extracted);
+    if (repaired) {
+      try {
+        parsed = ResponseSchema.parse(JSON.parse(repaired));
+        extracted = repaired;
+        log.warn('generate.parse.auto_repaired', {
+          section,
+          original_err: String(firstParseErr),
+        });
+      } catch {
+        // Auto-repair didn't fix it — fall through to LLM retry.
+      }
+    }
+  }
+
+  // Step 3: LLM self-heal retry.
+  if (!parsed) {
+    log.warn('generate.parse.retry', { section, err: String(firstParseErr) });
     response = await callClaude([
       { role: 'user', content: userPrompt },
       { role: 'assistant', content: text },
       {
         role: 'user',
         content:
-          `Your previous response was good CONTENT but had broken JSON SYNTAX (parse error: ${String(firstErr)}).\n\n` +
+          `Your previous response was good CONTENT but had broken JSON SYNTAX (parse error: ${String(firstParseErr)}).\n\n` +
           'CRITICAL INSTRUCTIONS FOR THIS RETRY:\n' +
           '1. Re-emit EVERY article from your previous response. Do NOT reduce the count. Do NOT return an empty array.\n' +
           '2. Keep title_en / title_zh / content_en / content_zh / so_what_en / so_what_zh IDENTICAL to the previous content. Do NOT shorten, rephrase, or edit.\n' +
@@ -115,7 +189,11 @@ export async function generateSection(opts: {
           '   - Replace every straight double quote (") inside any string value with single quote (\'), or Chinese 「」, or rewrite to remove the quote.\n' +
           '   - Escape literal newlines inside strings as \\n.\n' +
           '   - No trailing commas. No markdown code fences.\n' +
-          '4. Return ONLY the JSON object.',
+          '4. Return ONLY the JSON object.\n\n' +
+          'CONCRETE EXAMPLE OF THE BUG YOU MADE:\n' +
+          '   Bad:  "title_zh":"小红书押注"活人感"策略"\n' +
+          '   Good: "title_zh":"小红书押注\'活人感\'策略"\n' +
+          '   Good: "title_zh":"小红书押注「活人感」策略"',
       },
     ]);
     text = extractText(response);
@@ -123,24 +201,36 @@ export async function generateSection(opts: {
     try {
       parsed = ResponseSchema.parse(JSON.parse(extracted));
     } catch (secondErr) {
-      const posMatch = String(secondErr).match(/position (\d+)/);
-      const pos = posMatch ? Number(posMatch[1]) : 0;
-      const around = extracted.slice(Math.max(0, pos - 120), pos + 120);
-      log.error('generate.parse.error', {
-        section,
-        err: String(secondErr),
-        stop_reason: response.stop_reason,
-        total_len: extracted.length,
-        around_error: around,
-        raw_head: extracted.slice(0, 800),
-        raw_tail: extracted.slice(-400),
-      });
-      throw secondErr;
+      // Try auto-repair on the retry output too.
+      const repairedRetry = repairInnerQuotes(extracted);
+      if (repairedRetry) {
+        try {
+          parsed = ResponseSchema.parse(JSON.parse(repairedRetry));
+          extracted = repairedRetry;
+          log.warn('generate.parse.retry_auto_repaired', { section });
+        } catch {
+          // fall through to fatal
+        }
+      }
+      if (!parsed) {
+        const posMatch = String(secondErr).match(/position (\d+)/);
+        const pos = posMatch ? Number(posMatch[1]) : 0;
+        const around = extracted.slice(Math.max(0, pos - 120), pos + 120);
+        log.error('generate.parse.error', {
+          section,
+          err: String(secondErr),
+          stop_reason: response.stop_reason,
+          total_len: extracted.length,
+          around_error: around,
+          raw_head: extracted.slice(0, 800),
+          raw_tail: extracted.slice(-400),
+        });
+        throw secondErr;
+      }
     }
     // Guard against the "give-up retry": if the first attempt had substantial
     // text (> 300 chars) but the retry parsed to an empty array, the model
-    // shortcut rather than fix. Fail loudly so the caller can react instead
-    // of silently publishing a blank section.
+    // shortcut rather than fix.
     if (parsed.articles.length === 0 && firstAttemptTextLen > 300) {
       log.error('generate.retry.shortcut', {
         section,

@@ -18,6 +18,10 @@ export const RSS_FEEDS: RSSFeed[] = [
   { name: 'Google Research', url: 'https://research.google/blog/rss/', group: 'brief_first_party', lang: 'en' },
   { name: 'Google DeepMind Blog', url: 'https://www.deepmind.com/blog/rss.xml', group: 'brief_first_party', lang: 'en' },
   { name: 'Meta Engineering', url: 'https://engineering.fb.com/feed/', group: 'brief_first_party', lang: 'en' },
+  { name: 'Microsoft Research', url: 'https://www.microsoft.com/en-us/research/feed/', group: 'brief_first_party', lang: 'en' },
+  { name: 'Nvidia Blog', url: 'https://blogs.nvidia.com/feed/', group: 'brief_first_party', lang: 'en' },
+  { name: 'Hugging Face Blog', url: 'https://huggingface.co/blog/feed.xml', group: 'brief_first_party', lang: 'en' },
+  // Cohere blog RSS URL not stable — dropped until verified. Retry https://cohere.com/blog/feed.xml later.
 
   // Media (brief_media + case_deep_media)
   // Semafor + Founder Park dropped — no discoverable RSS. Substituted with verified mainstream tech / AI
@@ -33,6 +37,8 @@ export const RSS_FEEDS: RSSFeed[] = [
   { name: '量子位', url: 'https://www.qbitai.com/feed', group: 'brief_media', lang: 'zh' },
   { name: '机器之心', url: 'https://www.jiqizhixin.com/rss', group: 'brief_media', lang: 'zh' },
   { name: '36氪', url: 'https://36kr.com/feed', group: 'brief_media', lang: 'zh' },
+  // Semafor Tech + PingWest 硅星人 skipped — RSS URLs not reachable; revisit with verified feeds.
+  { name: 'Bloomberg Tech', url: 'https://feeds.bloomberg.com/technology/news.rss', group: 'brief_media', lang: 'en' },
 
   // Marketer-focused AI media (brief_marketer). Higher base-score bucket
   // than general brief_media so AI × marketing intersection stories rise
@@ -41,6 +47,9 @@ export const RSS_FEEDS: RSSFeed[] = [
   { name: 'Marketing AI Institute', url: 'https://www.marketingaiinstitute.com/blog/rss.xml', group: 'brief_marketer', lang: 'en' },
   { name: 'Digiday', url: 'https://digiday.com/feed/', group: 'brief_marketer', lang: 'en' },
   { name: 'Marketing Dive', url: 'https://www.marketingdive.com/feeds/news/', group: 'brief_marketer', lang: 'en' },
+
+  // Chinese community forum (brief_community via RSS)
+  { name: 'V2EX Tech', url: 'https://www.v2ex.com/feed/tab/tech.xml', group: 'brief_community', lang: 'zh' },
 
   // Substack / newsletter whitelist (growth_substack)
   // Opinion-driven marketing, growth, and AI-product-building voices.

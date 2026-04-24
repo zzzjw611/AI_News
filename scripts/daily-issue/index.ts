@@ -140,15 +140,26 @@ async function main(): Promise<void> {
       });
       continue;
     }
-    const sectionArticles = await generateSection({
-      client,
-      model: config.model,
-      section,
-      targets: config.sectionTargets[section],
-      candidates: pool,
-      date: config.targetDate,
-    });
-    articles.push(...sectionArticles);
+    // Section isolation: a parse / retry failure in one section should NOT
+    // crash the whole issue. Log and continue — other sections may still
+    // produce valid content, and assertPublishable catches the
+    // fully-empty-issue case.
+    try {
+      const sectionArticles = await generateSection({
+        client,
+        model: config.model,
+        section,
+        targets: config.sectionTargets[section],
+        candidates: pool,
+        date: config.targetDate,
+      });
+      articles.push(...sectionArticles);
+    } catch (err) {
+      log.error('generate.section.fatal', {
+        section,
+        err: err instanceof Error ? err.message : String(err),
+      });
+    }
   }
 
   // 6. Validate
