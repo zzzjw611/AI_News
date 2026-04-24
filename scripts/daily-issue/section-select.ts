@@ -183,6 +183,36 @@ function roundupPenalty(c: Candidate): number {
   return ROUNDUP_RE.test(c.title) ? -120 : 0;
 }
 
+// Broader marketer-relevance signal than marketingBoost keywords —
+// covers anything a marketer would plausibly action on. Used only for
+// the "non-marketer AI" penalty, not for scoring boosts.
+const MARKETER_CTX_RE =
+  /\b(marketing|advertising|advertis(ing|ement)|ads?|campaign|branding|brand[\s-]|copy(text|writing)?|creative|landing page|hero section|cta|ctr|cpc|cpm|cpa|cpl|roas|aov|ltv|cac|dau|mau|growth|conversion|retention|funnel|seo|sem|geo|aeo|content marketing|newsletter|influencer|creator|kol|go-to-market|gtm|icp|positioning|attribution|distribution|paid (ads|social|search|media)|media buy|ad (platform|tech|format|spend|portfolio)|martech|crm|cdp|ecommerce|shopify|hubspot|klaviyo|salesforce|canva|meta ads?|google ads?|facebook ads?|adweek|digiday|marketing brew|adexchanger|mediapost|marketing dive|marketo|lead gen|pr |press release)\b|营销|广告|推广|品牌[^名字]|投放|增长|转化|分发|内容营销|种草|社媒|私域|公域|裂变|获客|留存|KOL|MCN|CRM|CDP|电商|直播带货|创作者|文案|创意|落地页|漏斗|广告主|品牌方|小红书|抖音|微信|公众号|DSP|SSP/i;
+
+// Lab / major-vendor event: launches / funding / M&A / integrations
+// that shift a marketer's vendor stack whether or not the post itself
+// uses marketing wording.
+const EVENT_RE =
+  /\b(launches?|launched|releases?|released|ships?|shipping|announces?|announced|unveil(ed|s)?|introduces?|introduced|rollout|rolls out|raises? \$|raised \$|series [a-e]|funding round|valuation|valued at|acquires?|acquired|acquisition|integrates?|integration|pricing|partnership|ipo)\b|发布|推出|上线|融资|估值|收购|合作|并购/i;
+
+// Non-marketer-AI penalty. A candidate is AI (passed AI_RX at fetch) but
+// carries no marketer-context keyword AND is not a major lab event →
+// -100. Applied globally; brief_marketer sources and lab-event items are
+// exempt. Keeps pure-tech research, geopolitics, layoff news from
+// dominating daily_brief while still allowing them in the pool as
+// fallback if nothing better surfaces.
+function nonMarketerPenalty(c: Candidate): number {
+  if (c.source_group === 'brief_marketer') return 0;
+  const hay = `${c.title} ${c.raw_text ?? ''}`;
+  if (MARKETER_CTX_RE.test(hay)) return 0;
+  // Lab event escape hatch: only brief_first_party stories (OpenAI blog /
+  // Google Research / Hugging Face / etc.) get a pass on event wording.
+  // brief_media reports of events (lawsuits, geopolitics, funding) still
+  // eat the full penalty — those usually aren't marketer-actionable.
+  if (c.source_group === 'brief_first_party' && EVENT_RE.test(hay)) return 0;
+  return -100;
+}
+
 function score(c: Candidate): number {
   let s = baseScore(c);
   // log-dampened engagement so a 2000-upvote meme doesn't outrank OpenAI's blog
@@ -201,6 +231,9 @@ function score(c: Candidate): number {
   s += marketingBoost(c);
   // Aggregated-digest titles get punished into irrelevance.
   s += roundupPenalty(c);
+  // Pure-tech AI with no marketer angle and no lab-event framing gets
+  // pushed to the bottom of the pool.
+  s += nonMarketerPenalty(c);
   return s;
 }
 

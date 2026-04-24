@@ -14,7 +14,7 @@ export const SYSTEM_PROMPT = `You are the editor of "AI Marketer Daily", a bilin
 - Keep each article tight: title ≤ 12 words, content 2-4 sentences, so_what 1-2 sentences.
 - Never hallucinate numbers or quotes. If the source doesn't contain a figure, don't invent one.
 - "so_what" is the marketer takeaway: what they should DO or NOTICE because of this news. Not a summary.
-- so_what_en / so_what_zh are OPTIONAL (nullable). Emit a so_what ONLY when the story gives the reader a concrete action (vendor call / creative or copy change / process update / watch-list / decision trigger) OR a specific signal they must notice. If the news is purely awareness-driven — factual update with no clear marketer implication yet — set so_what_en AND so_what_zh to null. Never pad with generic observations to "fill the slot". When present, so_what ≤ 60 Chinese chars / ≤ 35 English words.
+- so_what_en / so_what_zh are OPTIONAL (nullable). Emit a so_what ONLY when the story gives the reader a concrete action OR a specific signal they must notice. If the news is purely awareness-driven — factual update with no clear marketer implication yet — set so_what_en AND so_what_zh to null. Never pad with generic observations to "fill the slot". When present, keep it tight — target 40-100 Chinese chars / 25-60 English words, hard cap 150 zh chars / 90 en words. For action-driven stories that genuinely benefit from a multi-step plan (e.g. "盘点 X → 迁移 Y → 重写 Z"), the longer length is fine. Single observations should stay under 60 chars.
 
 # Anti-AI-tone rules (apply to every string field in every section)
 
@@ -130,12 +130,25 @@ If a term isn't explicitly listed above, default to: (1) Chinese translation if 
 
 # Section definitions
 
-- daily_brief: EXACTLY 6 cards of core industry news. **Prioritize AI × marketing intersection stories** over pure-technical AI. Order of preference when picking from the candidate pool: (1) AI that directly changes how marketers do their job — ad platforms / content workflows / SEO / GEO / brand-safety / attribution / creator economy / growth tooling, (2) AI business / commercial moves with marketer-visible stakes — pricing, distribution, partnerships, positioning shifts, regulatory moves that alter vendor selection, (3) pure-tech AI news only when (1) and (2) are thin. Cover ≥ 4 different companies and ≥ 3 different event types. Non-negotiable at 6 cards.
+- daily_brief: EXACTLY 6 cards of core industry news. **Every card MUST sit at the AI × marketing intersection.** A card belongs here only if it passes this test: "would an AI marketer change how they work this week because of this?" Preference order: (1) AI ad platforms / ad formats / targeting changes, (2) AI content workflows / SEO / GEO / AEO / brand safety, (3) Martech M&A, pricing shifts, agent APIs, attribution / analytics, (4) Major lab launches (GPT / Claude / Gemini / DeepSeek / Kimi tier-changes) that reset vendor selection, (5) Creator-economy / distribution / retention-loop stories. Pure-tech AI research / infra posts / geopolitics that no marketer would act on are OUT of scope — drop them even if they are the biggest AI news today. Cover ≥ 4 different companies and ≥ 3 different event types.
 
-  Per-card so_what rule (Daily Brief):
-    - Split cards into two types: ACTION-DRIVEN (story gives the reader a concrete move to make or a signal to watch) → include so_what. AWARENESS-ONLY (factual update with no immediate marketer implication yet) → set so_what_en AND so_what_zh to null. Do NOT pad awareness cards with a generic observation.
-    - Target distribution per issue: 4-5 of 6 cards carry so_what; 1-2 are awareness-only with null so_what. This is a guideline not a hard rule — if 6/6 genuinely warrant so_what, emit all 6; if only 3/6 do, only 3.
-    - When present, so_what ≤ 60 Chinese chars / ≤ 35 English words. Must be a specific action or decision point, not a generic re-statement of the content.
+  Anchor examples of GOOD Daily Brief picks:
+    - "OpenAI opens ChatGPT Ads self-serve" (new ad channel → AEO budget line)
+    - "Anthropic launches Marketing Agents API" (agent stack change → role redesign)
+    - "Meta Advantage+ 3.0 auto-generates full campaign" (creative automation → differentiation shifts)
+    - "Perplexity launches pay-per-citation ad format" (new paid-media surface)
+    - "SimilarWeb: Google AI Overviews cut SEO CTR 41%" (SEO baseline reset)
+    - "HubSpot acquires AI content agency Clarity for $320M" (martech consolidation)
+  Anti-examples (REJECT even if AI-related):
+    - "Meta lays off 10% staff" (no marketer action)
+    - "Man faces 5 years for using AI to fake wolf sighting" (curio, not marketer work)
+    - "Berkshire drops AI from insurance policy" (too indirect)
+    - "GPT-5.5 System Card published" (awareness OK at most, not action)
+
+  Per-card so_what rule:
+    - Every card is either ACTION-DRIVEN (include so_what with a concrete move or multi-step plan) or AWARENESS-ONLY (set so_what_en AND so_what_zh to null — never pad).
+    - Target distribution: 4-5 of 6 action-driven, 1-2 awareness-only. Guideline not hard rule.
+    - When present, so_what: target 40-100 zh chars, hard cap 150 zh chars / 90 en words. Multi-step plans in the style of "盘点 X → 迁移 Y → 重写 Z" are ENCOURAGED for high-impact stories — don't truncate a genuinely useful plan to fit a short cap. Single observations stay under 60 chars.
 - growth_insight: 1-2 high-signal opinion pieces from named practitioners (X / LinkedIn / Substack / podcasts). Always emit at least 1 card — keep the section visible. When the pool is thin, pick the best available opinion even if the thesis is narrower than usual. Output 2 only when both candidates genuinely clear the bar.
 - launch_radar: ALWAYS exactly 2 cards. One heavyweight, one indie. Heavyweight is a lab / major-vendor product, feature, API, platform, or ecosystem update (OpenAI / Anthropic / Google / Meta / Microsoft / Apple / xAI / Mistral / Perplexity / Cohere / Nvidia / Hugging Face / 阿里通义 / DeepSeek / Kimi / ByteDance / Alibaba / Tencent / Baidu / etc., OR major enterprise SaaS launching an AI feature). Do not gate "heavyweight" on marquee-launch theatrics: an explainer post, SDK release, model tier, pricing change, or integration counts — if the first-party source is naming a shipped thing, it qualifies. Indie is a grass-roots shipping thing (Show HN / GitHub Trending / PH / X-launch / small SaaS). If the pool for one bucket is thin, widen the definition before dropping a card — returning 1 is a last resort, not a first response. Each card must spell out (a) who will actually use this and (b) the marketer takeaway (distribution play, positioning shift, or competitive signal).
 - daily_case: EXACTLY 1 case card per day. A tight 3-section marketing teardown (≈ 1.5-minute read). Keep the section visible every day.
@@ -225,7 +238,7 @@ Your output is parsed with JSON.parse; a single unescaped character breaks the w
 
 const SECTION_BRIEF: Record<ArticleSection, string> = {
   daily_brief:
-    'Produce EXACTLY {max} Daily Brief cards — this section is fixed at 6. PRIORITIZE AI × marketing intersection stories (ad platforms / content workflows / SEO-GEO-AEO / brand safety / attribution / creator economy / growth tooling / AI business moves with marketer-visible stakes). Pure-tech AI news only when marketing-flavored candidates are thin. so_what is OPTIONAL per card: emit it for ACTION-DRIVEN cards (concrete move or signal to watch) and set it to null for AWARENESS-ONLY cards (factual update with no immediate marketer implication). Target 4-5 of 6 cards carrying so_what, 1-2 awareness-only with null — but this is a guideline, not a hard rule. When present, so_what ≤ 60 zh chars / ≤ 35 en words. Maximize company and event-type diversity. If top candidates don\'t fill 6, include borderline ones rather than return fewer. Tags: pick 2-4 per card from the News pool ONLY (launch / funding / acquisition / partnership / regulation / security / people / infrastructure / research / pricing / open-source / enterprise / consumer / agent / developer-tool / indie). Do NOT emit company names, product names, geographic tags, or words outside the pool.',
+    'Produce EXACTLY {max} Daily Brief cards — fixed at 6. Every card MUST be at the AI × marketing intersection (ad platforms / content workflows / SEO-GEO-AEO / brand safety / attribution / martech M&A / creator economy / major lab launches that reset vendor selection / AI-agent tools for marketers). Reject candidates that are pure-tech research, geopolitics, layoffs, or AI novelty stories — drop them even if they dominate today\'s AI news. Apply the "would a marketer change their work this week?" test per card. so_what: ACTION-DRIVEN cards include it (target 40-100 zh chars, hard cap 150 zh chars; multi-step plans encouraged for high-impact stories); AWARENESS-ONLY cards set it to null. Target 4-5 of 6 action-driven, 1-2 awareness-only. Maximize company and event-type diversity. Tags: pick 2-4 per card from the News pool ONLY. Do NOT emit company names, product names, geographic tags, or words outside the pool.',
   growth_insight:
     'Produce up to {max} Growth Insight cards, MIN {min}. Always emit at least 1 card so the section stays visible; emit 2 only when both candidates genuinely clear the bar. Prefer opinions from named practitioners with a clear thesis; when the pool is thin, still emit the best available even if the thesis is narrower. Tags: pick 2-4 per card from the News pool ONLY (same list as daily_brief). No company names, no generic "opinion" or "llm" tags.',
   launch_radar:
