@@ -52,6 +52,40 @@ const COMPANY_ALIASES: Array<[string, string[]]> = [
   ['01.AI', ['01.ai', '零一万物', 'yi-large']],
   ['StepFun', ['stepfun', '阶跃星辰']],
   ['MiniMax', ['minimax']],
+  // Chinese B2B SaaS / martech / analytics / AI-native startups. Extending
+  // here lets maxPerCompanyRatio actually cap multi-angle coverage of a
+  // single CN SaaS subject (e.g. 微盟 AI First strategy piece + 微盟 AI To C
+  // piece landing as two separate items in daily_brief).
+  ['微盟 Weimob', ['微盟', 'weimob']],
+  ['有赞 Youzan', ['有赞', 'youzan']],
+  ['销售易', ['销售易', 'neocrm']],
+  ['神策数据', ['神策', 'sensorsdata', 'sensors data']],
+  ['明源云', ['明源云', '明源']],
+  ['金山办公 WPS', ['金山办公', 'wps office']],
+  ['商汤 SenseTime', ['sensetime', '商汤']],
+  ['旷视 Megvii', ['megvii', '旷视']],
+  ['云从 CloudWalk', ['cloudwalk', '云从']],
+  ['第四范式 4Paradigm', ['4paradigm', '第四范式']],
+  ['地平线 Horizon', ['地平线机器人', 'horizon robotics']],
+  ['科大讯飞 iFlytek', ['科大讯飞', 'iflytek']],
+  ['小鹏 XPeng', ['小鹏', 'xpeng']],
+  ['理想 Li Auto', ['理想汽车', 'li auto', 'lixiang']],
+  ['蔚来 NIO', ['蔚来', ' nio ']],
+  // Western martech / creator-economy / adtech targets that showed up in
+  // our new brief_marketer feeds.
+  ['Canva', ['canva']],
+  ['HubSpot', ['hubspot']],
+  ['Salesforce', ['salesforce']],
+  ['Klaviyo', ['klaviyo']],
+  ['Intercom', ['intercom']],
+  ['Mailchimp', ['mailchimp']],
+  ['Jasper', ['jasper ai', 'jasper.ai']],
+  ['Writer', ['writer.com', 'writer ai']],
+  ['Copy.ai', ['copy.ai', 'copyai']],
+  ['Synthesia', ['synthesia']],
+  ['Runway', ['runway ml', 'runwayml', 'runway.ml']],
+  ['Pencil', ['pencil ai', 'pencil.ai']],
+  ['Lovable', ['lovable', 'gpt engineer']],
 ];
 
 export function detectCompany(c: Pick<Candidate, 'title' | 'raw_text' | 'source_name'>): string | null {

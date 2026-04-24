@@ -4,10 +4,14 @@ import { detectCompany, detectEventType } from './diversity';
 import { log } from './log';
 
 const FILL_ORDER: ArticleSection[] = [
+  // daily_case runs first so it can claim the best marketer-focused
+  // candidate before daily_brief (which has min 6 and tends to absorb
+  // everything). Launch / growth use narrow source groups anyway, so
+  // moving them later doesn't cost them candidates.
+  'daily_case',
   'launch_radar',
   'growth_insight',
   'daily_brief',
-  'daily_case',
 ];
 
 const SECTION_GROUPS: Record<ArticleSection, SourceGroup[]> = {
@@ -134,7 +138,10 @@ function baseScore(c: Candidate): number {
   if (c.source_group === 'growth_cn_creators') return 140;
   if (c.source_group === 'growth_x_accounts') return 120;
   if (c.source_group === 'case_data_evidence') return 140;
-  if (c.source_group === 'case_user_requests') return 130;
+  // Manually-curated items beat everything else in their eligible section.
+  // Use this for hand-picked AI × marketing case URLs you want to publish
+  // regardless of what the RSS crawlers surface. Format: src/data/manual-queue.json.
+  if (c.source_group === 'case_user_requests') return 260;
   if (COMMUNITY.has(c.source_group)) return 80;
   return 100;
 }
@@ -286,6 +293,20 @@ function isFirstPartyOrMedia(c: Candidate): boolean {
   return FIRST_PARTY.has(c.source_group) || MEDIA.has(c.source_group);
 }
 
+// Section-specific score adjustment, applied on top of the global score()
+// during per-section pool re-sort. Use this to nudge selection toward
+// section-appropriate sources without polluting the global ordering.
+function sectionBonus(c: Candidate, section: ArticleSection): number {
+  if (section === 'daily_case') {
+    // Prefer sources with dedicated marketing-case orientation.
+    if (c.source_group === 'brief_marketer') return 100;
+    // brief_first_party (lab blogs) are usually not case-worthy —
+    // they're product announcements, not teardowns. De-prioritize.
+    if (c.source_group === 'brief_first_party') return -30;
+  }
+  return 0;
+}
+
 export function selectBySection(
   candidates: Candidate[],
   targets: Record<ArticleSection, { min: number; max: number }>,
@@ -394,8 +415,10 @@ export function selectBySection(
         });
         if (novel.length) pool = novel;
       }
-      // Pool was pre-sorted by score() before entering this section loop;
-      // the filter preserves that order so pool[0] is the top candidate.
+      // Re-sort pool applying section-specific bonus so e.g. daily_case
+      // prefers brief_marketer over a lab blog. The base score() order is
+      // preserved for ties.
+      pool.sort((a, b) => score(b) + sectionBonus(b, section) - score(a) - sectionBonus(a, section));
       pick(pool[0]);
     }
 

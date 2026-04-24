@@ -1,4 +1,6 @@
 import process from 'node:process';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import Anthropic from '@anthropic-ai/sdk';
 import type { Article, ArticleSection } from '../../src/lib/types';
 import type { Candidate, PipelineConfig } from './types';
@@ -50,10 +52,48 @@ async function main(): Promise<void> {
     fetchWindowHours: 24,
     fetchBufferHours: 1,
     dedupWindowDays: 7,
-    sectionTargets: DEFAULT_TARGETS,
+    // Clone so per-run mutations (manual-case preservation below) don't
+    // leak across invocations.
+    sectionTargets: JSON.parse(JSON.stringify(DEFAULT_TARGETS)),
     dryRun: args.dryRun,
     model: 'claude-sonnet-4-6',
   };
+
+  // Manual-curation preservation: if the current issue already contains
+  // any article with metadata.generated_by === 'manual-curation', skip
+  // regenerating that section and carry the human-written version forward.
+  // Workflow: you drop a hand-written case into src/data/issues/<date>.json
+  // at 9:30 local time; later pipeline runs (cron, --rerun) leave it alone.
+  const issuePath = path.join(rootDir, 'src/data/issues', `${config.targetDate}.json`);
+  const preserved: Partial<Record<ArticleSection, Article[]>> = {};
+  try {
+    const existingRaw = await fs.readFile(issuePath, 'utf-8');
+    const existing = JSON.parse(existingRaw) as { articles: Article[] };
+    for (const a of existing.articles) {
+      if (a.metadata && (a.metadata as Record<string, unknown>).generated_by === 'manual-curation') {
+        if (!preserved[a.section]) preserved[a.section] = [];
+        preserved[a.section]!.push(a);
+      }
+    }
+    for (const section of Object.keys(preserved) as ArticleSection[]) {
+      const n = preserved[section]!.length;
+      // Reduce section target by the preserved count so pipeline doesn't
+      // over-produce. For daily_case this zeroes out (1 preserved = 1 target).
+      const t = config.sectionTargets[section];
+      config.sectionTargets[section] = {
+        min: Math.max(0, t.min - n),
+        max: Math.max(0, t.max - n),
+      };
+      log.info('pipeline.manual.preserved', {
+        section,
+        count: n,
+        adjusted_target: config.sectionTargets[section],
+      });
+    }
+  } catch {
+    // no existing file — nothing to preserve
+  }
+
   log.info('pipeline.start', { config });
 
   // 1. Fetch — each fetcher filters by lower bound only, so we tell them to
@@ -161,6 +201,26 @@ async function main(): Promise<void> {
       });
     }
   }
+
+  // 5b. Merge preserved manual-curation articles back in so they ship
+  // in the written issue alongside newly-generated sections.
+  for (const section of Object.keys(preserved) as ArticleSection[]) {
+    const manual = preserved[section];
+    if (manual) articles.push(...manual);
+  }
+  // Keep a predictable section order in the output file.
+  const SECTION_ORDER: ArticleSection[] = [
+    'daily_brief',
+    'growth_insight',
+    'launch_radar',
+    'daily_case',
+  ];
+  articles.sort((a, b) => {
+    const sa = SECTION_ORDER.indexOf(a.section);
+    const sb = SECTION_ORDER.indexOf(b.section);
+    if (sa !== sb) return sa - sb;
+    return a.order_in_section - b.order_in_section;
+  });
 
   // 6. Validate
   if (!config.dryRun) {

@@ -61,6 +61,23 @@ async function loadRecentArticles(opts: {
   return articles;
 }
 
+function urlHost(url: string): string {
+  try {
+    return new URL(url).host.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+}
+
+function titleStem(title: string, n: number): string {
+  // Keep first N meaningful characters. Strip leading markers like "最前线｜"
+  // that 36kr and peers prepend, so the stem reflects the actual subject.
+  const cleaned = title
+    .replace(/^[\[「【]*[^｜|\]」】]+[｜|\]」】]\s*/u, '')
+    .trim();
+  return cleaned.slice(0, n);
+}
+
 export async function dedup(
   candidates: Candidate[],
   opts: { rootDir: string; now: Date; windowDays: number; excludeDates?: string[] },
@@ -74,6 +91,13 @@ export async function dedup(
   const out: Candidate[] = [];
   const seenInBatch = new Set<string>();
   const batchGrams: Set<string>[] = [];
+  // Host + title-stem dedup: same publisher running two pieces on the
+  // same subject today (e.g. 36kr posting two "微盟 AI..." articles with
+  // different angles). Trigram Jaccard misses these when the headlines
+  // phrase different aspects of one company's news. Keep the item with
+  // the later published_at; the older one loses.
+  const seenHostStems = new Map<string, Candidate>();
+  let hostStemDrops = 0;
 
   for (const c of candidates) {
     if (seenUrls.has(c.source_url)) continue;
@@ -83,10 +107,34 @@ export async function dedup(
       seenTitleGrams.some((g) => jaccard(g, grams) > 0.7) ||
       batchGrams.some((g) => jaccard(g, grams) > 0.7);
     if (tooClose) continue;
+
+    const key = `${urlHost(c.source_url)}|${titleStem(c.title, 6)}`;
+    const prior = seenHostStems.get(key);
+    if (prior) {
+      const priorTs = Date.parse(prior.published_at);
+      const currentTs = Date.parse(c.published_at);
+      if (currentTs <= priorTs) {
+        // Older / equal: drop current.
+        hostStemDrops += 1;
+        continue;
+      }
+      // Newer: replace prior in out[] and swap the map entry.
+      const idx = out.indexOf(prior);
+      if (idx >= 0) out.splice(idx, 1);
+      hostStemDrops += 1;
+      // Fall through — add current below.
+    }
+
     seenInBatch.add(c.source_url);
     batchGrams.push(grams);
+    seenHostStems.set(key, c);
     out.push(c);
   }
-  log.info('dedup.done', { in: candidates.length, out: out.length, history: history.length });
+  log.info('dedup.done', {
+    in: candidates.length,
+    out: out.length,
+    history: history.length,
+    host_stem_drops: hostStemDrops,
+  });
   return out;
 }
